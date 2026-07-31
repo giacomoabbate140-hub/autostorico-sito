@@ -51,7 +51,7 @@ url('assets/officina_2.jpg');background-size:cover,auto 100%;background-position
 
 .revision-feature{padding:34px 0 0;background:#fff}
 .revision-feature-inner{display:grid;grid-template-columns:1fr 1fr;background:#f4f7fb;border:1px solid #e1e8ee;border-radius:10px;overflow:hidden}
-.revision-feature img{height:330px;object-fit:cover}
+.revision-feature img{height:360px;object-fit:cover;object-position:center 52%;filter:contrast(1.08) saturate(1.08) brightness(1.04)}
 .revision-feature-copy{padding:38px;display:flex;flex-direction:column;justify-content:center}
 .revision-feature-copy h2{margin:0 0 12px;color:var(--navy);font-size:36px;line-height:1.08}
 .revision-feature-copy p{margin:0;color:var(--muted);font-size:17px;line-height:1.6}
@@ -65,6 +65,10 @@ section{padding:58px 0}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(7,28,48,.12);border:1px solid #e3e8ee}
 .service-card img{height:180px;object-fit:cover}
+.diagnostic-images{display:grid;grid-template-columns:1fr 1fr;height:180px;overflow:hidden;background:#edf2f6}
+.service-card .diagnostic-images img{width:100%;height:180px;object-fit:cover}
+.service-card .diagnostic-images img:first-child{object-position:center 58%}
+.service-card .diagnostic-images img:last-child{object-position:center 48%}
 .service-card .body{padding:18px;text-align:center}
 .service-card h3{margin:0 0 10px;color:var(--navy);font-size:17px}
 .service-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
@@ -164,7 +168,8 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .featured-service img{height:230px;min-height:0}
   .revision-feature-copy{padding:26px}
   .revision-feature-copy h2{font-size:31px}
-  .revision-feature img{height:260px}
+  .revision-feature img{height:280px}
+  .diagnostic-images,.service-card .diagnostic-images img{height:155px}
   .phones{grid-template-columns:repeat(2,1fr)}
   .phone img{height:300px}
   .dark-head,.listing-head{align-items:flex-start;flex-direction:column}
@@ -234,47 +239,6 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
     </div>
   </section>
 
-  <section id="servizi">
-    <div class="wrap">
-      <h2 class="section-title">I NOSTRI SERVIZI</h2>
-      <div class="services">
-        <article class="service-card"><img src="assets/officina_3.jpg"><div class="body"><h3>DIAGNOSI</h3><p>Diagnosi elettronica multimarca e ricerca guasti con strumenti avanzati.</p></div></article>
-        <article class="service-card"><img src="assets/officina_4.jpg"><div class="body"><h3>RIPARAZIONI</h3><p>Meccanica generale, manutenzione ordinaria e straordinaria.</p></div></article>
-        <article class="service-card"><img src="assets/officina_5.jpg"><div class="body"><h3>CLIMATIZZAZIONE</h3><p>Controllo, ricarica e riparazione degli impianti di aria condizionata.</p></div></article>
-        <article class="service-card"><img src="assets/officina_6.jpg"><div class="body"><h3>GAS DI SCARICO</h3><p>Controllo delle emissioni e dei sistemi antinquinamento.</p></div></article>
-      </div>
-      <div class="featured-services">
-        <article class="featured-service"><img src="assets/servizio_lavaggio_cambio_automatico.jpg" alt="Macchinario per il lavaggio del cambio automatico"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Lavaggio cambio automatico</h3><p>Servizio dedicato alla manutenzione del cambio automatico, con attrezzatura specifica.</p></div></article>
-        <article class="featured-service"><img src="assets/servizio_ricarica_aria_condizionata.jpg" alt="Macchinario per la ricarica dell'aria condizionata"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Ricarica aria condizionata</h3><p>Controllo e ricarica dell'impianto per ripristinare comfort ed efficienza.</p></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="competenze" class="qualifications">
-    <div class="wrap qualifications-grid">
-      <div class="qualification-copy">
-        <div class="kicker">Formazione e aggiornamento</div>
-        <h2>Competenze e qualifiche</h2>
-        <p>La cura dell'auto parte dalla preparazione: il nostro centro affianca l'esperienza quotidiana in officina con formazione tecnica e aggiornamento professionale.</p>
-        <ul class="qualification-list">
-          <li>Diagnosi elettronica e servizi multimarca</li>
-          <li>Climatizzazione e recupero dei gas fluorurati</li>
-          <li>Formazione tecnica su manutenzione e riparazione</li>
-          <li>Attestati e abilitazioni di settore</li>
-        </ul>
-      </div>
-      <div class="qualification-gallery">
-        <figure><img src="assets/qualifica_1.jpg" alt="Attestati di formazione professionale"><figcaption>Formazione tecnica</figcaption></figure>
-        <figure><img src="assets/qualifica_2.jpg" alt="Autorizzazioni e attestati del centro"><figcaption>Autorizzazioni e attestati</figcaption></figure>
-        <figure><img src="assets/qualifica_3.jpg" alt="Corsi di aggiornamento professionale"><figcaption>Aggiornamento professionale</figcaption></figure>
-        <figure><img src="assets/qualifica_4.jpg" alt="Qualifiche del personale"><figcaption>Qualifiche del personale</figcaption></figure>
-        <figure><img src="assets/qualifica_5.jpg" alt="Certificati di idoneita tecnica"><figcaption>Idoneita tecnica</figcaption></figure>
-        <figure><img src="assets/qualifica_revisione_veicoli.png" alt="Autorizzazione per la revisione veicoli"><figcaption>Impresa autorizzata alle revisioni</figcaption></figure>
-        <figure><img src="assets/qualifica_competenze_revisione.png" alt="Attestati di competenza per revisioni periodiche"><figcaption>Competenze per revisioni periodiche</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
   <section id="autostorico">
     <div class="wrap">
       <div class="autostorico">
@@ -305,6 +269,47 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
             <figure class="phone"><img src="assets/app_dossier_vendita.jpg" alt="Dossier vendita in AutoStorico"><figcaption>Dossier vendita</figcaption></figure>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servizi">
+    <div class="wrap">
+      <h2 class="section-title">I NOSTRI SERVIZI</h2>
+      <div class="services">
+        <article class="service-card"><div class="diagnostic-images"><img src="assets/servizio_diagnosi_autel.jpg" alt="Strumento Autel per diagnosi elettronica"><img src="assets/servizio_diagnosi_texa.jpg" alt="Strumento TEXA per diagnosi elettronica"></div><div class="body"><h3>DIAGNOSI</h3><p>Diagnosi elettronica multimarca e ricerca guasti con strumenti avanzati.</p></div></article>
+        <article class="service-card"><img src="assets/officina_4.jpg"><div class="body"><h3>RIPARAZIONI</h3><p>Meccanica generale, manutenzione ordinaria e straordinaria.</p></div></article>
+        <article class="service-card"><img src="assets/officina_5.jpg"><div class="body"><h3>CLIMATIZZAZIONE</h3><p>Controllo, ricarica e riparazione degli impianti di aria condizionata.</p></div></article>
+        <article class="service-card"><img src="assets/servizio_gasbox.jpg" alt="Stazione di analisi per gas di scarico"><div class="body"><h3>GAS DI SCARICO</h3><p>Controllo delle emissioni e dei sistemi antinquinamento.</p></div></article>
+      </div>
+      <div class="featured-services">
+        <article class="featured-service"><img src="assets/servizio_lavaggio_cambio_automatico.jpg" alt="Macchinario per il lavaggio del cambio automatico"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Lavaggio cambio automatico</h3><p>Servizio dedicato alla manutenzione del cambio automatico, con attrezzatura specifica.</p></div></article>
+        <article class="featured-service"><img src="assets/servizio_ricarica_aria_condizionata.jpg" alt="Macchinario per la ricarica dell'aria condizionata"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Ricarica aria condizionata</h3><p>Controllo e ricarica dell'impianto per ripristinare comfort ed efficienza.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="competenze" class="qualifications">
+    <div class="wrap qualifications-grid">
+      <div class="qualification-copy">
+        <div class="kicker">Formazione e aggiornamento</div>
+        <h2>Competenze e qualifiche</h2>
+        <p>La cura dell'auto parte dalla preparazione: il nostro centro affianca l'esperienza quotidiana in officina con formazione tecnica e aggiornamento professionale.</p>
+        <ul class="qualification-list">
+          <li>Diagnosi elettronica e servizi multimarca</li>
+          <li>Climatizzazione e recupero dei gas fluorurati</li>
+          <li>Formazione tecnica su manutenzione e riparazione</li>
+          <li>Attestati e abilitazioni di settore</li>
+        </ul>
+      </div>
+      <div class="qualification-gallery">
+        <figure><img src="assets/qualifica_1.jpg" alt="Attestati di formazione professionale"><figcaption>Formazione tecnica</figcaption></figure>
+        <figure><img src="assets/qualifica_2.jpg" alt="Autorizzazioni e attestati del centro"><figcaption>Autorizzazioni e attestati</figcaption></figure>
+        <figure><img src="assets/qualifica_3.jpg" alt="Corsi di aggiornamento professionale"><figcaption>Aggiornamento professionale</figcaption></figure>
+        <figure><img src="assets/qualifica_4.jpg" alt="Qualifiche del personale"><figcaption>Qualifiche del personale</figcaption></figure>
+        <figure><img src="assets/qualifica_5.jpg" alt="Certificati di idoneita tecnica"><figcaption>Idoneita tecnica</figcaption></figure>
+        <figure><img src="assets/qualifica_revisione_veicoli.png" alt="Autorizzazione per la revisione veicoli"><figcaption>Impresa autorizzata alle revisioni</figcaption></figure>
+        <figure><img src="assets/qualifica_competenze_revisione.png" alt="Attestati di competenza per revisioni periodiche"><figcaption>Competenze per revisioni periodiche</figcaption></figure>
       </div>
     </div>
   </section>
