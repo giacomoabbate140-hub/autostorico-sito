@@ -58,6 +58,19 @@ section{padding:58px 0}
 .service-card h3{margin:0 0 10px;color:var(--navy);font-size:17px}
 .service-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
 
+.qualifications{background:#f4f7fb}
+.qualifications-grid{display:grid;grid-template-columns:.85fr 1.65fr;gap:30px;align-items:start}
+.qualification-copy{padding:12px 0}
+.qualification-copy h2{margin:0;color:var(--navy);font-size:38px;line-height:1.08}
+.qualification-copy p{color:var(--muted);font-size:17px;line-height:1.6}
+.qualification-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.qualification-list li{display:flex;align-items:flex-start;gap:10px;font-weight:800;line-height:1.35}
+.qualification-list li:before{content:"+";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900;flex:0 0 auto}
+.qualification-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.qualification-gallery figure{margin:0;background:#fff;border:1px solid #e1e8ee;border-radius:8px;overflow:hidden;box-shadow:0 8px 20px rgba(7,28,48,.08)}
+.qualification-gallery img{height:190px;object-fit:cover}
+.qualification-gallery figcaption{padding:10px 12px;color:var(--navy);font-size:13px;font-weight:900}
+
 .autostorico{background:linear-gradient(135deg,var(--navy),var(--navy2));color:white;border-radius:22px;padding:38px;margin-top:12px}
 .auto-grid{display:grid;grid-template-columns:.9fr 1.7fr;gap:28px;align-items:center}
 .auto-copy h2{font-size:46px;margin:0}.auto-copy h2 span{color:var(--yellow)}
@@ -112,6 +125,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .quickgrid{grid-template-columns:repeat(2,1fr)}
   .quickitem{border-bottom:1px solid rgba(255,255,255,.12)}
   .auto-grid{grid-template-columns:1fr}
+  .qualifications-grid{grid-template-columns:1fr}
   .phones{grid-template-columns:repeat(4,1fr)}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .cars-grid{grid-template-columns:repeat(2,1fr)}
@@ -125,6 +139,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .hero-copy{padding:58px 0 80px}
   .hero h1{font-size:48px}
   .quickgrid,.services,.phones,.work-grid,.cars-grid,.info-grid,.team{grid-template-columns:1fr}
+  .qualification-gallery{grid-template-columns:repeat(2,1fr)}
   .phones{grid-template-columns:repeat(2,1fr)}
   .phone img{height:300px}
   .dark-head,.listing-head{align-items:flex-start;flex-direction:column}
@@ -186,6 +201,29 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
         <article class="service-card"><img src="assets/officina_4.jpg"><div class="body"><h3>RIPARAZIONI</h3><p>Meccanica generale, manutenzione ordinaria e straordinaria.</p></div></article>
         <article class="service-card"><img src="assets/officina_5.jpg"><div class="body"><h3>CLIMATIZZAZIONE</h3><p>Controllo, ricarica e riparazione degli impianti di aria condizionata.</p></div></article>
         <article class="service-card"><img src="assets/officina_6.jpg"><div class="body"><h3>GAS DI SCARICO</h3><p>Controllo delle emissioni e dei sistemi antinquinamento.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="competenze" class="qualifications">
+    <div class="wrap qualifications-grid">
+      <div class="qualification-copy">
+        <div class="kicker">Formazione e aggiornamento</div>
+        <h2>Competenze e qualifiche</h2>
+        <p>La cura dell'auto parte dalla preparazione: il nostro centro affianca l'esperienza quotidiana in officina con formazione tecnica e aggiornamento professionale.</p>
+        <ul class="qualification-list">
+          <li>Diagnosi elettronica e servizi multimarca</li>
+          <li>Climatizzazione e recupero dei gas fluorurati</li>
+          <li>Formazione tecnica su manutenzione e riparazione</li>
+          <li>Attestati e abilitazioni di settore</li>
+        </ul>
+      </div>
+      <div class="qualification-gallery">
+        <figure><img src="assets/qualifica_1.jpg" alt="Attestati di formazione professionale"><figcaption>Formazione tecnica</figcaption></figure>
+        <figure><img src="assets/qualifica_2.jpg" alt="Autorizzazioni e attestati del centro"><figcaption>Autorizzazioni e attestati</figcaption></figure>
+        <figure><img src="assets/qualifica_3.jpg" alt="Corsi di aggiornamento professionale"><figcaption>Aggiornamento professionale</figcaption></figure>
+        <figure><img src="assets/qualifica_4.jpg" alt="Qualifiche del personale"><figcaption>Qualifiche del personale</figcaption></figure>
+        <figure><img src="assets/qualifica_5.jpg" alt="Certificati di idoneita tecnica"><figcaption>Idoneita tecnica</figcaption></figure>
       </div>
     </div>
   </section>
