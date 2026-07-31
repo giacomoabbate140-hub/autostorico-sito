@@ -80,6 +80,16 @@ section{padding:58px 0}
 .featured-service h3{margin:0 0 10px;font-size:25px;line-height:1.12}
 .featured-service p{margin:0;color:#d7e2ea;line-height:1.5}
 
+.reviews-section{padding:0 0 58px;background:#fff}
+.reviews-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;background:#f4f7fb;border:1px solid #e1e8ee;border-radius:10px;padding:36px 40px}
+.reviews-copy .kicker{margin-bottom:10px}
+.reviews-copy h2{margin:0 0 12px;color:var(--navy);font-size:34px;line-height:1.1}
+.reviews-copy p{margin:0;color:var(--muted);font-size:17px;line-height:1.6;max-width:650px}
+.reviews-actions{display:grid;gap:12px;justify-items:stretch}
+.review-cta,.review-secondary{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:7px;padding:12px 18px;text-align:center;font-weight:900;text-decoration:none}
+.review-cta{background:var(--yellow);color:var(--navy);box-shadow:0 8px 18px rgba(255,196,0,.22)}
+.review-secondary{border:1px solid #adc1d0;color:var(--navy);background:#fff}
+
 .qualifications{background:#f4f7fb}
 .qualifications-grid{display:grid;grid-template-columns:.85fr 1.65fr;gap:30px;align-items:start}
 .qualification-copy{padding:12px 0}
@@ -152,6 +162,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .phones{grid-template-columns:repeat(4,1fr)}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .featured-services{grid-template-columns:1fr}
+  .reviews-panel{grid-template-columns:1fr}
   .cars-grid{grid-template-columns:repeat(2,1fr)}
   .info-grid{grid-template-columns:1fr 1fr}
 }
@@ -166,6 +177,8 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .qualification-gallery{grid-template-columns:repeat(2,1fr)}
   .featured-service{grid-template-columns:1fr}
   .featured-service img{height:230px;min-height:0}
+  .reviews-panel{padding:28px 24px}
+  .reviews-copy h2{font-size:29px}
   .revision-feature-copy{padding:26px}
   .revision-feature-copy h2{font-size:31px}
   .revision-feature img{height:280px}
@@ -285,6 +298,22 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
       <div class="featured-services">
         <article class="featured-service"><img src="assets/servizio_lavaggio_cambio_automatico.jpg" alt="Macchinario per il lavaggio del cambio automatico"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Lavaggio cambio automatico</h3><p>Servizio dedicato alla manutenzione del cambio automatico, con attrezzatura specifica.</p></div></article>
         <article class="featured-service"><img src="assets/servizio_ricarica_aria_condizionata.jpg" alt="Macchinario per la ricarica dell'aria condizionata"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Ricarica aria condizionata</h3><p>Controllo e ricarica dell'impianto per ripristinare comfort ed efficienza.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="recensioni" class="reviews-section" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="reviews-panel">
+        <div class="reviews-copy">
+          <div class="kicker">La voce dei nostri clienti</div>
+          <h2 id="reviews-title">Hai scelto il nostro servizio?</h2>
+          <p>Racconta la tua esperienza con il Centro Revisione Abbate e Figli. La tua recensione aiuta altri automobilisti a scegliere con maggiore serenita.</p>
+        </div>
+        <div class="reviews-actions">
+          <a class="review-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Abbate%20Vincenzo%20Viale%20della%20Resurrezione%2074%2FA%20Palermo" target="_blank" rel="noopener noreferrer">Lascia una recensione su Google</a>
+          <a class="review-secondary" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20lasciare%20un%20feedback%20sul%20servizio%20ricevuto." target="_blank" rel="noopener noreferrer">Invia un feedback su WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
