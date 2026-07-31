@@ -90,6 +90,14 @@ section{padding:58px 0}
 .review-cta,.review-secondary{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:7px;padding:12px 18px;text-align:center;font-weight:900;text-decoration:none}
 .review-cta{background:var(--yellow);color:var(--navy);box-shadow:0 8px 18px rgba(255,196,0,.22)}
 .review-secondary{border:1px solid #adc1d0;color:var(--navy);background:#fff}
+.reviews-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:2px}
+.review-card{display:flex;flex-direction:column;gap:12px;min-height:205px;background:#fff;border:1px solid #dce6ed;border-radius:8px;padding:22px;box-shadow:0 8px 20px rgba(7,28,48,.06)}
+.review-card blockquote{margin:0;color:var(--text);font-size:16px;line-height:1.55}
+.review-author{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--navy);font-weight:900}
+.review-meta{font-size:13px;color:#667786;font-weight:700;white-space:nowrap}
+.review-stars{color:#efad00;letter-spacing:2px;font-size:17px}
+.review-footer{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
+.review-footer strong{color:var(--navy)}
 
 .qualifications{background:#f4f7fb}
 .qualifications-grid{display:grid;grid-template-columns:.85fr 1.65fr;gap:30px;align-items:start}
@@ -164,6 +172,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .featured-services{grid-template-columns:1fr}
   .reviews-panel{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
   .cars-grid{grid-template-columns:repeat(2,1fr)}
   .info-grid{grid-template-columns:1fr 1fr}
 }
@@ -317,6 +326,29 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
           <a class="review-cta" href="https://www.google.com/maps/search/?api=1&amp;query=Abbate%20Vincenzo%20Viale%20della%20Resurrezione%2074%2FA%20Palermo" target="_blank" rel="noopener noreferrer">Lascia una recensione su Google</a>
           <a class="review-secondary" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20lasciare%20un%20feedback%20sul%20servizio%20ricevuto." target="_blank" rel="noopener noreferrer">Invia un feedback su WhatsApp</a>
         </div>
+        <div class="reviews-grid" aria-label="Recensioni Google dei clienti">
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&quot;Da diverso tempo sono loro cliente per la revisione della mia auto e sono sempre rimasto soddisfatto del servizio. Sono molto professionali e cortesi, precisi nel loro lavoro. Io mi trovo bene. Lo consiglio.&quot;</blockquote>
+            <div class="review-author"><span>Giuseppe Bonaccorso</span><span class="review-meta">Google · 5 anni fa</span></div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="4 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <blockquote>&quot;Perfetto.&quot;</blockquote>
+            <div class="review-author"><span>Giuseppe Taormina</span><span class="review-meta">Google · 11 mesi fa</span></div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&quot;Gentilezza, accoglienza, professionalita e convenienza: una perla rara, sempre disponibile.&quot;</blockquote>
+            <div class="review-author"><span>Francesco Intrivici</span><span class="review-meta">Google · 2 anni fa</span></div>
+          </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 stelle su 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&quot;Professionali e gentili.&quot;</blockquote>
+            <div class="review-author"><span>Patrizia Caponetto</span><span class="review-meta">Google · 5 anni fa</span></div>
+          </article>
+        </div>
+        <p class="review-footer"><strong>Altre valutazioni a cinque stelle su Google:</strong> Feliciano Vitale, Giorgio Polizzi, Br1 Pass, Roberto Saja e Carmelo Scl.</p>
       </div>
     </div>
   </section>
