@@ -81,6 +81,19 @@ section{padding:58px 0}
 .featured-service h3{margin:0 0 10px;font-size:25px;line-height:1.12}
 .featured-service p{margin:0;color:#d7e2ea;line-height:1.5}
 
+.gas-services{padding:0 0 58px;background:#fff}
+.gas-services-inner{display:grid;grid-template-columns:.9fr 1.1fr;background:var(--navy);border-radius:10px;overflow:hidden;color:#fff}
+.gas-services-inner>img{width:100%;height:100%;min-height:390px;object-fit:cover;object-position:center}
+.gas-services-copy{padding:38px}
+.gas-services-copy h2{margin:0 0 12px;font-size:36px;line-height:1.1}
+.gas-services-copy>p{margin:0;color:#d7e2ea;font-size:17px;line-height:1.6}
+.gas-services-list{display:grid;gap:12px;margin:24px 0}
+.gas-services-item{display:grid;grid-template-columns:48px 1fr;gap:13px;align-items:start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:14px}
+.gas-service-badge{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:var(--yellow);color:var(--navy);font-size:13px;font-weight:900}
+.gas-services-item h3{margin:0 0 4px;font-size:17px}
+.gas-services-item p{margin:0;color:#d7e2ea;font-size:14px;line-height:1.45}
+.gas-services-link{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;background:var(--yellow);border-radius:7px;color:var(--navy);font-weight:900;text-decoration:none}
+
 .reviews-section{padding:0 0 58px;background:#fff}
 .reviews-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;background:#f4f7fb;border:1px solid #e1e8ee;border-radius:10px;padding:36px 40px}
 .reviews-copy .kicker{margin-bottom:10px}
@@ -170,6 +183,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .revision-feature-inner{grid-template-columns:1fr}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .featured-services{grid-template-columns:1fr}
+  .gas-services-inner{grid-template-columns:1fr}
   .reviews-panel{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr}
   .cars-grid{grid-template-columns:repeat(2,1fr)}
@@ -187,6 +201,9 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .qualification-gallery img{height:220px}
   .featured-service{grid-template-columns:1fr}
   .featured-service img{height:230px;min-height:0}
+  .gas-services-inner>img{min-height:230px;height:230px}
+  .gas-services-copy{padding:28px 24px}
+  .gas-services-copy h2{font-size:30px}
   .reviews-panel{padding:28px 24px}
   .reviews-copy h2{font-size:29px}
   .revision-feature-copy{padding:26px}
@@ -310,6 +327,25 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
       <div class="featured-services">
         <article class="featured-service"><img src="assets/servizio_lavaggio_cambio_automatico.jpg" alt="Macchinario per il lavaggio del cambio automatico"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Lavaggio cambio automatico</h3><p>Servizio dedicato alla manutenzione del cambio automatico, con attrezzatura specifica.</p></div></article>
         <article class="featured-service"><img src="assets/servizio_ricarica_aria_condizionata.jpg" alt="Macchinario per la ricarica dell'aria condizionata"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Ricarica aria condizionata</h3><p>Controllo e ricarica dell'impianto per ripristinare comfort ed efficienza.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="impianti-gas" class="gas-services" aria-labelledby="gas-services-title">
+    <div class="wrap">
+      <div class="gas-services-inner">
+        <img src="assets/officina_1.jpg" alt="Insegna del Centro Revisione Abbate e Figli con servizio di installazione impianti a gas e metano">
+        <div class="gas-services-copy">
+          <div class="kicker">Servizi per impianti a gas</div>
+          <h2 id="gas-services-title">GPL e metano, con assistenza dedicata</h2>
+          <p>Seguiamo gli interventi principali per il tuo impianto a gas, con informazioni chiare prima del lavoro e supporto diretto dal nostro centro.</p>
+          <div class="gas-services-list">
+            <article class="gas-services-item"><div class="gas-service-badge">GPL</div><div><h3>Installazione impianti a gas</h3><p>Installazione di impianti GPL e metano per autoveicoli, con verifica della soluzione piu adatta al veicolo.</p></div></article>
+            <article class="gas-services-item"><div class="gas-service-badge">10</div><div><h3>Scadenza decennale GPL</h3><p>Controllo della scadenza del serbatoio GPL e assistenza nella gestione dell'intervento necessario.</p></div></article>
+            <article class="gas-services-item"><div class="gas-service-badge">CNG</div><div><h3>Sostituzione bombole metano</h3><p>Valutazione e sostituzione delle bombole metano secondo la procedura prevista per il veicolo.</p></div></article>
+          </div>
+          <a class="gas-services-link" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20informazioni%20per%20un%20impianto%20GPL%20o%20metano." target="_blank" rel="noopener noreferrer">Richiedi informazioni su GPL e metano</a>
+        </div>
       </div>
     </div>
   </section>
