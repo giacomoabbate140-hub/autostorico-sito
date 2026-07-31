@@ -111,6 +111,27 @@ section{padding:58px 0}
 .review-stars{color:#efad00;letter-spacing:2px;font-size:17px}
 .review-footer{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
 .review-footer strong{color:var(--navy)}
+.review-form{grid-column:1/-1;display:grid;gap:14px;margin-top:4px;padding:24px;background:#eaf1f6;border:1px solid #cfdee8;border-radius:8px}
+.review-form h3{margin:0;color:var(--navy);font-size:22px}
+.review-form p{margin:0;color:var(--muted);line-height:1.5}
+.review-form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.review-field{display:grid;gap:7px;font-size:14px;font-weight:900;color:var(--navy)}
+.review-field.full{grid-column:1/-1}
+.review-field input,.review-field select,.review-field textarea{width:100%;border:1px solid #aec2d1;border-radius:6px;background:#fff;color:var(--text);font:inherit;font-weight:400;padding:12px}
+.review-field textarea{min-height:110px;resize:vertical}
+.review-consent{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-size:13px;line-height:1.4}
+.review-consent input{margin-top:3px;accent-color:#0b5d7b}
+.review-submit{justify-self:start;min-height:48px;padding:10px 18px;border:0;border-radius:7px;background:#0b5d7b;color:#fff;font:inherit;font-weight:900;cursor:pointer}
+
+.zoomable{cursor:zoom-in}
+.zoomable-container{position:relative}
+.zoomable-container:after{content:"\1F50D";position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(4,26,45,.88);color:#fff;font-size:17px;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.zoomable-container:hover:after{background:var(--yellow);color:var(--navy)}
+.image-lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(2,13,24,.88)}
+.image-lightbox.is-open{display:flex}
+.image-lightbox img{display:block;max-width:min(94vw,1300px);max-height:88vh;object-fit:contain;background:#fff;border-radius:4px;box-shadow:0 18px 55px rgba(0,0,0,.5)}
+.image-lightbox button{position:absolute;top:18px;right:20px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:var(--navy);font-size:28px;line-height:1;cursor:pointer}
+body.lightbox-open{overflow:hidden}
 
 .qualifications{background:#f4f7fb}
 .qualifications-grid{display:grid;grid-template-columns:.85fr 1.65fr;gap:30px;align-items:start}
@@ -186,6 +207,8 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .gas-services-inner{grid-template-columns:1fr}
   .reviews-panel{grid-template-columns:1fr}
   .reviews-grid{grid-template-columns:1fr}
+  .review-form-grid{grid-template-columns:1fr}
+  .review-field.full{grid-column:auto}
   .cars-grid{grid-template-columns:repeat(2,1fr)}
   .info-grid{grid-template-columns:1fr 1fr}
 }
@@ -385,6 +408,18 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
           </article>
         </div>
         <p class="review-footer"><strong>Altre valutazioni a cinque stelle su Google:</strong> Feliciano Vitale, Giorgio Polizzi, Br1 Pass, Roberto Saja e Carmelo Scl.</p>
+        <form id="review-form" class="review-form">
+          <h3>Lascia il tuo feedback</h3>
+          <p>Invia la tua esperienza al nostro centro: valuteremo insieme la pubblicazione sul sito.</p>
+          <div class="review-form-grid">
+            <label class="review-field">Nome e cognome<input name="nome" type="text" autocomplete="name" required></label>
+            <label class="review-field">Servizio utilizzato<select name="servizio" required><option value="">Seleziona un servizio</option><option>Revisione</option><option>Riparazione</option><option>Diagnosi</option><option>Climatizzazione</option><option>GPL o metano</option><option>Altro servizio</option></select></label>
+            <label class="review-field">Valutazione<select name="valutazione" required><option value="">Seleziona la valutazione</option><option>5 stelle</option><option>4 stelle</option><option>3 stelle</option><option>2 stelle</option><option>1 stella</option></select></label>
+            <label class="review-field full">La tua recensione<textarea name="recensione" maxlength="800" required></textarea></label>
+          </div>
+          <label class="review-consent"><input name="consenso" type="checkbox" required>Autorizzo il Centro Revisione Abbate e Figli a ricontattarmi e, se approvato, a pubblicare il mio feedback con il mio nome.</label>
+          <button class="review-submit" type="submit">Invia la recensione</button>
+        </form>
       </div>
     </div>
   </section>
@@ -472,5 +507,64 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   </div>
 </footer>
 
+<div id="image-lightbox" class="image-lightbox" role="dialog" aria-modal="true" aria-label="Immagine ingrandita">
+  <button id="image-lightbox-close" type="button" aria-label="Chiudi immagine">&times;</button>
+  <img id="image-lightbox-image" src="" alt="">
+</div>
+
+<script>
+document.getElementById('review-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const message = 'Nuovo feedback dal sito%0A%0ANome: ' + encodeURIComponent(data.get('nome')) +
+    '%0AServizio: ' + encodeURIComponent(data.get('servizio')) +
+    '%0AValutazione: ' + encodeURIComponent(data.get('valutazione')) +
+    '%0ARecensione: ' + encodeURIComponent(data.get('recensione'));
+  window.open('https://wa.me/393889984140?text=' + message, '_blank', 'noopener');
+});
+
+const lightbox = document.getElementById('image-lightbox');
+const lightboxImage = document.getElementById('image-lightbox-image');
+const lightboxClose = document.getElementById('image-lightbox-close');
+
+function openImageLightbox(image) {
+  lightboxImage.src = image.currentSrc || image.src;
+  lightboxImage.alt = image.alt || 'Immagine ingrandita';
+  lightbox.classList.add('is-open');
+  document.body.classList.add('lightbox-open');
+  lightboxClose.focus();
+}
+
+function closeImageLightbox() {
+  lightbox.classList.remove('is-open');
+  document.body.classList.remove('lightbox-open');
+  lightboxImage.src = '';
+}
+
+document.querySelectorAll('.revision-feature img, .service-card img, .featured-service img, .qualification-gallery img, .phone img, .gas-services-inner > img').forEach(function (image) {
+  image.classList.add('zoomable');
+  const container = image.closest('.service-card, .featured-service, .qualification-gallery figure, .phone, .revision-feature-inner, .gas-services-inner');
+  if (container) container.classList.add('zoomable-container');
+  image.tabIndex = 0;
+  image.setAttribute('role', 'button');
+  image.setAttribute('aria-label', 'Apri immagine ingrandita: ' + (image.alt || 'foto'));
+  image.title = 'Doppio clic per ingrandire';
+  image.addEventListener('dblclick', function () { openImageLightbox(image); });
+  image.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openImageLightbox(image);
+    }
+  });
+});
+
+lightboxClose.addEventListener('click', closeImageLightbox);
+lightbox.addEventListener('click', function (event) {
+  if (event.target === lightbox) closeImageLightbox();
+});
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape' && lightbox.classList.contains('is-open')) closeImageLightbox();
+});
+</script>
 </body>
 </html>
