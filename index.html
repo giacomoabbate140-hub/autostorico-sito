@@ -113,15 +113,15 @@ section{padding:58px 0}
 .qualification-gallery figcaption{padding:13px 14px;color:var(--navy);font-size:15px;font-weight:900;line-height:1.25;text-align:center}
 
 .autostorico{background:linear-gradient(135deg,var(--navy),var(--navy2));color:white;border-radius:22px;padding:38px;margin-top:12px}
-.auto-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:34px;align-items:center}
+.auto-grid{display:grid;grid-template-columns:.9fr 1.7fr;gap:28px;align-items:center}
 .auto-copy h2{font-size:46px;margin:0}.auto-copy h2 span{color:var(--yellow)}
 .auto-copy h3{font-size:20px;margin:6px 0 15px}
 .auto-copy p{color:#dce7ef;line-height:1.55}
 .auto-copy ul{padding:0;margin:18px 0 0;list-style:none;display:grid;gap:9px}
 .auto-copy li:before{content:"✓";color:var(--yellow);font-weight:900;margin-right:10px}
-.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.phone{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.28)}
-.phone img{height:390px;object-fit:contain;background:#f2f5f8}
+.phones{display:flex;gap:14px;overflow-x:auto;max-width:100%;padding:2px 2px 8px;scroll-snap-type:x mandatory}
+.phone{margin:0;flex:0 0 calc((100% - 28px)/3);min-width:0;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.28);scroll-snap-align:start}
+.phone img{height:350px;object-fit:contain;background:#f2f5f8}
 .phone figcaption{padding:11px 10px 13px;text-align:center;color:var(--navy);font-size:13px;font-weight:900;line-height:1.3;background:#fff}
 
 .dark-section{background:var(--navy);color:white;padding:24px 0 32px}
@@ -168,7 +168,6 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .auto-grid{grid-template-columns:1fr}
   .qualifications-grid{grid-template-columns:1fr}
   .revision-feature-inner{grid-template-columns:1fr}
-  .phones{grid-template-columns:repeat(4,1fr)}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .featured-services{grid-template-columns:1fr}
   .reviews-panel{grid-template-columns:1fr}
@@ -195,8 +194,9 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .revision-feature img{height:280px}
   .diagnostic-images,.service-card .diagnostic-images img{height:155px}
   .service-card.gas-service img{height:190px}
-  .phones{grid-template-columns:repeat(2,1fr)}
-  .phone img{height:330px}
+  .phones{gap:12px}
+  .phone{flex-basis:calc((100% - 12px)/2)}
+  .phone img{height:320px}
   .dark-head,.listing-head{align-items:flex-start;flex-direction:column}
   .autostorico{padding:24px}
   .auto-copy h2{font-size:36px}
