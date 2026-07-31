@@ -18,6 +18,8 @@ a{text-decoration:none;color:inherit}
 .wrap{width:min(1440px,calc(100% - 36px));margin:auto}
 
 header{position:sticky;top:0;z-index:50;background:var(--navy);color:white;border-bottom:1px solid rgba(255,255,255,.08)}
+.revision-notice{background:var(--yellow);color:var(--navy);font-weight:900;font-size:14px;text-align:center;padding:9px 18px}
+.revision-notice span{display:inline-block;margin:0 7px}
 .topbar{height:86px;display:flex;align-items:center;gap:28px}
 .logo{display:flex;align-items:center;gap:13px;margin-right:auto;font-weight:900;line-height:1}
 .logo-badge{width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-size:14px;border:4px solid white}
@@ -46,6 +48,15 @@ url('assets/officina_2.jpg');background-size:cover,auto 100%;background-position
 .quickitem{padding:22px 18px;border-right:1px solid rgba(255,255,255,.12);display:flex;gap:12px;align-items:center;font-weight:700}
 .quickitem:last-child{border-right:0}
 .icon{width:46px;height:46px;border:2px solid var(--yellow);border-radius:50%;display:grid;place-items:center;color:var(--yellow);font-size:22px;flex:0 0 auto}
+
+.revision-feature{padding:34px 0 0;background:#fff}
+.revision-feature-inner{display:grid;grid-template-columns:1fr 1fr;background:#f4f7fb;border:1px solid #e1e8ee;border-radius:10px;overflow:hidden}
+.revision-feature img{height:330px;object-fit:cover}
+.revision-feature-copy{padding:38px;display:flex;flex-direction:column;justify-content:center}
+.revision-feature-copy h2{margin:0 0 12px;color:var(--navy);font-size:36px;line-height:1.08}
+.revision-feature-copy p{margin:0;color:var(--muted);font-size:17px;line-height:1.6}
+.revision-feature-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:21px}
+.revision-feature-tags span{background:#fff;border:1px solid #cfdce6;border-radius:7px;padding:8px 11px;color:var(--navy);font-weight:900;font-size:13px}
 
 section{padding:58px 0}
 .section-title{text-align:center;font-size:34px;margin:0 0 30px;color:var(--navy)}
@@ -133,6 +144,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .quickitem{border-bottom:1px solid rgba(255,255,255,.12)}
   .auto-grid{grid-template-columns:1fr}
   .qualifications-grid{grid-template-columns:1fr}
+  .revision-feature-inner{grid-template-columns:1fr}
   .phones{grid-template-columns:repeat(4,1fr)}
   .work-grid{grid-template-columns:repeat(2,1fr)}
   .featured-services{grid-template-columns:1fr}
@@ -150,6 +162,9 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .qualification-gallery{grid-template-columns:repeat(2,1fr)}
   .featured-service{grid-template-columns:1fr}
   .featured-service img{height:230px;min-height:0}
+  .revision-feature-copy{padding:26px}
+  .revision-feature-copy h2{font-size:31px}
+  .revision-feature img{height:260px}
   .phones{grid-template-columns:repeat(2,1fr)}
   .phone img{height:300px}
   .dark-head,.listing-head{align-items:flex-start;flex-direction:column}
@@ -159,6 +174,8 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
 </style>
 </head>
 <body>
+
+<div class="revision-notice">CENTRO REVISIONI <span>|</span> Revisioni per auto, furgoni e camper</div>
 
 <header>
   <div class="wrap topbar">
@@ -202,6 +219,20 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
       <div class="quickitem"><div class="icon">◆</div>Professionalità e serietà</div>
     </div>
   </div>
+
+  <section class="revision-feature" aria-labelledby="revision-title">
+    <div class="wrap">
+      <div class="revision-feature-inner">
+        <img src="assets/centro_revisione_auto.jpg" alt="Linea di revisione veicoli del Centro Revisione Abbate e Figli">
+        <div class="revision-feature-copy">
+          <div class="kicker">Centro revisione</div>
+          <h2 id="revision-title">Revisioni per auto, furgoni e camper</h2>
+          <p>Effettuiamo revisioni in sede con attrezzatura dedicata e controlli accurati per i veicoli che usi ogni giorno, per lavoro o per viaggiare.</p>
+          <div class="revision-feature-tags"><span>Auto</span><span>Furgoni</span><span>Camper</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="servizi">
     <div class="wrap">
