@@ -65,6 +65,7 @@ section{padding:58px 0}
 .services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(7,28,48,.12);border:1px solid #e3e8ee}
 .service-card img{height:180px;object-fit:cover}
+.service-card.gas-service img{height:220px;object-fit:contain;object-position:center;background:#eaf0f4;padding:5px}
 .diagnostic-images{display:grid;grid-template-columns:1fr 1fr;height:180px;overflow:hidden;background:#edf2f6}
 .service-card .diagnostic-images img{width:100%;height:180px;object-fit:cover}
 .service-card .diagnostic-images img:first-child{object-position:center 58%}
@@ -93,15 +94,15 @@ section{padding:58px 0}
 .qualifications{background:#f4f7fb}
 .qualifications-grid{display:grid;grid-template-columns:.85fr 1.65fr;gap:30px;align-items:start}
 .qualification-copy{padding:12px 0}
-.qualification-copy h2{margin:0;color:var(--navy);font-size:38px;line-height:1.08}
+.qualification-copy h2{margin:0;color:var(--navy);font-size:42px;line-height:1.08}
 .qualification-copy p{color:var(--muted);font-size:17px;line-height:1.6}
 .qualification-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
 .qualification-list li{display:flex;align-items:flex-start;gap:10px;font-weight:800;line-height:1.35}
 .qualification-list li:before{content:"+";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--yellow);color:var(--navy);font-weight:900;flex:0 0 auto}
-.qualification-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.qualification-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .qualification-gallery figure{margin:0;background:#fff;border:1px solid #e1e8ee;border-radius:8px;overflow:hidden;box-shadow:0 8px 20px rgba(7,28,48,.08)}
-.qualification-gallery img{height:190px;object-fit:cover}
-.qualification-gallery figcaption{padding:10px 12px;color:var(--navy);font-size:13px;font-weight:900}
+.qualification-gallery img{height:260px;object-fit:contain;background:#edf2f6;padding:8px}
+.qualification-gallery figcaption{padding:13px 14px;color:var(--navy);font-size:15px;font-weight:900;line-height:1.25;text-align:center}
 
 .autostorico{background:linear-gradient(135deg,var(--navy),var(--navy2));color:white;border-radius:22px;padding:38px;margin-top:12px}
 .auto-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:34px;align-items:center}
@@ -175,6 +176,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .hero h1{font-size:48px}
   .quickgrid,.services,.phones,.work-grid,.cars-grid,.info-grid,.team{grid-template-columns:1fr}
   .qualification-gallery{grid-template-columns:repeat(2,1fr)}
+  .qualification-gallery img{height:220px}
   .featured-service{grid-template-columns:1fr}
   .featured-service img{height:230px;min-height:0}
   .reviews-panel{padding:28px 24px}
@@ -183,6 +185,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .revision-feature-copy h2{font-size:31px}
   .revision-feature img{height:280px}
   .diagnostic-images,.service-card .diagnostic-images img{height:155px}
+  .service-card.gas-service img{height:190px}
   .phones{grid-template-columns:repeat(2,1fr)}
   .phone img{height:330px}
   .dark-head,.listing-head{align-items:flex-start;flex-direction:column}
@@ -293,7 +296,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
         <article class="service-card"><div class="diagnostic-images"><img src="assets/servizio_diagnosi_autel.jpg" alt="Strumento Autel per diagnosi elettronica"><img src="assets/servizio_diagnosi_texa.jpg" alt="Strumento TEXA per diagnosi elettronica"></div><div class="body"><h3>DIAGNOSI</h3><p>Diagnosi elettronica multimarca e ricerca guasti con strumenti avanzati.</p></div></article>
         <article class="service-card"><img src="assets/officina_4.jpg"><div class="body"><h3>RIPARAZIONI</h3><p>Meccanica generale, manutenzione ordinaria e straordinaria.</p></div></article>
         <article class="service-card"><img src="assets/officina_5.jpg"><div class="body"><h3>CLIMATIZZAZIONE</h3><p>Controllo, ricarica e riparazione degli impianti di aria condizionata.</p></div></article>
-        <article class="service-card"><img src="assets/servizio_gasbox.jpg" alt="Stazione di analisi per gas di scarico"><div class="body"><h3>GAS DI SCARICO</h3><p>Controllo delle emissioni e dei sistemi antinquinamento.</p></div></article>
+        <article class="service-card gas-service"><img src="assets/servizio_gasbox.jpg" alt="Stazione di analisi per gas di scarico"><div class="body"><h3>GAS DI SCARICO</h3><p>Controllo delle emissioni e dei sistemi antinquinamento.</p></div></article>
       </div>
       <div class="featured-services">
         <article class="featured-service"><img src="assets/servizio_lavaggio_cambio_automatico.jpg" alt="Macchinario per il lavaggio del cambio automatico"><div class="body"><div class="eyebrow">SERVIZIO SPECIALIZZATO</div><h3>Lavaggio cambio automatico</h3><p>Servizio dedicato alla manutenzione del cambio automatico, con attrezzatura specifica.</p></div></article>
@@ -321,9 +324,9 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   <section id="competenze" class="qualifications">
     <div class="wrap qualifications-grid">
       <div class="qualification-copy">
-        <div class="kicker">Formazione e aggiornamento</div>
-        <h2>Competenze e qualifiche</h2>
-        <p>La cura dell'auto parte dalla preparazione: il nostro centro affianca l'esperienza quotidiana in officina con formazione tecnica e aggiornamento professionale.</p>
+        <div class="kicker">Formazione, abilitazioni e aggiornamento</div>
+        <h2>I nostri titoli e competenze</h2>
+        <p>La cura dell'auto parte dalla preparazione. Qui trovi attestati, autorizzazioni e percorsi di aggiornamento che affiancano l'esperienza quotidiana in officina.</p>
         <ul class="qualification-list">
           <li>Diagnosi elettronica e servizi multimarca</li>
           <li>Climatizzazione e recupero dei gas fluorurati</li>
