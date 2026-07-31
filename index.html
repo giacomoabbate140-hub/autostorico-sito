@@ -1,66 +1,286 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="AutoStorico organizza libretto, lavori, scadenze, documenti e valore della tua auto." />
-    <title>AutoStorico | La tua auto, sempre in ordine</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main>
-      <header class="topbar">
-        <a class="brand" href="#inizia" aria-label="AutoStorico home"><span class="brand-mark" aria-hidden="true">A</span><span>AutoStorico</span></a>
-        <nav aria-label="Navigazione principale"><a href="#funzioni">Funzioni</a><a href="#valore">Valore auto</a><a href="#disponibilita">Disponibilita</a></nav>
-      </header>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centro Revisione Abbate e Figli</title>
+<meta name="description" content="Centro Revisione Abbate e Figli a Palermo: revisioni, diagnosi, riparazioni, climatizzazione, impianti a gas, AutoStorico, lavori giornalieri e vendita auto usate.">
+<style>
+:root{
+  --navy:#041a2d; --navy2:#082946; --yellow:#ffc400; --white:#fff;
+  --text:#102032; --muted:#5b6773; --light:#f4f7fb; --green:#20b35a; --line:#dfe7ee;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+img{display:block;width:100%}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1440px,calc(100% - 36px));margin:auto}
 
-      <section class="hero" id="inizia">
-        <div class="hero-copy">
-          <p class="eyebrow">L'APP PER CHI TIENE ALLA PROPRIA AUTO</p>
-          <h1>La storia completa della tua auto, finalmente in ordine.</h1>
-          <p class="lead">AutoStorico raccoglie in un unico posto libretto, manutenzioni, chilometri, scadenze, documenti e valore del veicolo.</p>
-          <div class="actions"><a class="store-button" href="#disponibilita">Scopri AutoStorico</a><a class="secondary-link" href="#funzioni">Guarda cosa fa</a></div>
-          <div class="trust-row"><span>✓ Dati sotto il tuo controllo</span><span>✓ Prova gratuita 30 giorni</span></div>
+header{position:sticky;top:0;z-index:50;background:var(--navy);color:white;border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar{height:86px;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:13px;margin-right:auto;font-weight:900;line-height:1}
+.logo-badge{width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-size:14px;border:4px solid white}
+.logo span{font-size:18px}.logo strong{display:block;color:var(--yellow);font-size:23px;margin-top:4px}
+nav{display:flex;gap:28px;font-weight:800;font-size:14px;white-space:nowrap}
+nav a:hover,nav a.active{color:var(--yellow)}
+.wa-btn,.primary-btn,.outline-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font-weight:900}
+.wa-btn{background:var(--yellow);color:var(--navy);padding:13px 20px}
+.primary-btn{background:var(--yellow);color:var(--navy);padding:14px 20px}
+.outline-btn{border:2px solid rgba(255,255,255,.75);color:white;padding:12px 20px}
+.play-btn{display:inline-flex;align-items:center;gap:9px;background:#101820;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:12px 16px;margin-top:22px;font-weight:900}
+.play-btn small{display:block;font-weight:700;color:#cdd7df;font-size:11px}.play-btn strong{display:block;font-size:15px}
+
+.hero{min-height:590px;color:#fff;display:flex;align-items:center;background-color:#082946;background-image:
+linear-gradient(90deg,rgba(2,18,31,.96) 0%,rgba(2,18,31,.68) 44%,rgba(2,18,31,.12) 75%),
+url('assets/officina_2.jpg');background-size:cover,auto 100%;background-position:center,right center;background-repeat:no-repeat}
+.hero-copy{max-width:660px;padding:72px 0 105px}
+.kicker{color:var(--yellow);font-weight:900;margin-bottom:18px}
+.hero h1{font-size:clamp(50px,7vw,86px);line-height:.98;margin:0 0 22px}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p{font-size:20px;line-height:1.55;max-width:620px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+
+.quickbar{background:var(--navy);color:white}
+.quickgrid{display:grid;grid-template-columns:repeat(5,1fr)}
+.quickitem{padding:22px 18px;border-right:1px solid rgba(255,255,255,.12);display:flex;gap:12px;align-items:center;font-weight:700}
+.quickitem:last-child{border-right:0}
+.icon{width:46px;height:46px;border:2px solid var(--yellow);border-radius:50%;display:grid;place-items:center;color:var(--yellow);font-size:22px;flex:0 0 auto}
+
+section{padding:58px 0}
+.section-title{text-align:center;font-size:34px;margin:0 0 30px;color:var(--navy)}
+.section-title:after{content:"";display:block;width:44px;height:4px;background:var(--yellow);margin:12px auto 0;border-radius:10px}
+
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(7,28,48,.12);border:1px solid #e3e8ee}
+.service-card img{height:180px;object-fit:cover}
+.service-card .body{padding:18px;text-align:center}
+.service-card h3{margin:0 0 10px;color:var(--navy);font-size:17px}
+.service-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+
+.autostorico{background:linear-gradient(135deg,var(--navy),var(--navy2));color:white;border-radius:22px;padding:38px;margin-top:12px}
+.auto-grid{display:grid;grid-template-columns:.9fr 1.7fr;gap:28px;align-items:center}
+.auto-copy h2{font-size:46px;margin:0}.auto-copy h2 span{color:var(--yellow)}
+.auto-copy h3{font-size:20px;margin:6px 0 15px}
+.auto-copy p{color:#dce7ef;line-height:1.55}
+.auto-copy ul{padding:0;margin:18px 0 0;list-style:none;display:grid;gap:9px}
+.auto-copy li:before{content:"✓";color:var(--yellow);font-weight:900;margin-right:10px}
+.phones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.phone{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.28)}
+.phone img{height:320px;object-fit:contain;background:#f2f5f8}
+.phone figcaption{padding:11px 10px 13px;text-align:center;color:var(--navy);font-size:13px;font-weight:900;line-height:1.3;background:#fff}
+
+.dark-section{background:var(--navy);color:white;padding:24px 0 32px}
+.dark-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}
+.dark-head h2{margin:0;font-size:28px}.dark-head p{margin:0;color:#c5d1db}
+.small-btn{background:var(--yellow);color:var(--navy);padding:10px 16px;border-radius:7px;font-weight:900}
+
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.work-card,.car-card{background:white;color:var(--text);border-radius:10px;overflow:hidden}
+.work-card img{height:180px;object-fit:cover}
+.work-card .body,.car-card .body{padding:14px}
+.work-card small{color:var(--muted)}.work-card h3{font-size:16px;margin:6px 0}
+
+.cars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.car-card img{height:170px;object-fit:cover}
+.car-card h3{margin:0 0 8px;font-size:17px}
+.car-card p{margin:4px 0;color:#475464;font-size:14px}
+.price{font-size:24px;font-weight:900;color:#0e9f52!important}
+.car-wa{display:block;text-align:center;border:2px solid #25b65c;color:#148f46;padding:8px;border-radius:7px;font-weight:900;margin-top:10px}
+.listing-section{background:#f4f7fb}
+.listing-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+.listing-head h2{margin:0;color:var(--navy);font-size:32px}.listing-head p{margin:8px 0 0;color:var(--muted);line-height:1.5}
+.empty-listing{border:1px dashed #aebdca;background:#fff;min-height:210px;border-radius:10px;display:grid;place-items:center;text-align:center;padding:34px;box-shadow:0 8px 22px rgba(7,28,48,.06)}
+.empty-mark{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:#fff6d7;color:#b67d00;border:1px solid #ffe299;font-size:24px;font-weight:900}
+.empty-listing h3{margin:0;color:var(--navy);font-size:20px}.empty-listing p{max-width:470px;margin:9px auto 0;color:var(--muted);line-height:1.5}
+
+.info{background:#f4f7fb}
+.info-grid{display:grid;grid-template-columns:1fr 1.4fr 1.2fr 1.1fr;gap:0;background:white;border-radius:12px;box-shadow:0 8px 26px rgba(5,28,48,.1);overflow:hidden}
+.info-box{padding:24px;border-right:1px solid #e3e8ee}.info-box:last-child{border-right:0}
+.info-box h3{color:var(--navy);margin-top:0}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.person-photo{height:140px;border-radius:8px;background:linear-gradient(135deg,#dbe7ef,#a9bfd0);display:flex;align-items:flex-end;justify-content:center;padding:14px;color:var(--navy);font-weight:900;text-align:center}
+.role{font-size:12px;color:#526070;margin-top:6px}
+.map{height:190px;border-radius:9px;background:linear-gradient(135deg,#e9e3d7,#f7f4ed);display:grid;place-items:center;font-weight:900;color:#c13f35}
+
+footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:1100px){
+  nav{display:none}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .quickgrid{grid-template-columns:repeat(2,1fr)}
+  .quickitem{border-bottom:1px solid rgba(255,255,255,.12)}
+  .auto-grid{grid-template-columns:1fr}
+  .phones{grid-template-columns:repeat(4,1fr)}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .cars-grid{grid-template-columns:repeat(2,1fr)}
+  .info-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .topbar{height:auto;padding:14px 0;align-items:flex-start}
+  .logo span{font-size:14px}.logo strong{font-size:18px}
+  .wa-btn{font-size:12px;padding:10px}
+  .hero{min-height:610px;background-size:cover,cover;background-position:center,62% center}
+  .hero-copy{padding:58px 0 80px}
+  .hero h1{font-size:48px}
+  .quickgrid,.services,.phones,.work-grid,.cars-grid,.info-grid,.team{grid-template-columns:1fr}
+  .phones{grid-template-columns:repeat(2,1fr)}
+  .phone img{height:300px}
+  .dark-head,.listing-head{align-items:flex-start;flex-direction:column}
+  .autostorico{padding:24px}
+  .auto-copy h2{font-size:36px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap topbar">
+    <a class="logo" href="#home">
+      <div class="logo-badge">C.R.A.</div>
+      <span>CENTRO REVISIONE<strong>ABBATE E FIGLI</strong><small>Officina • Revisioni • Diagnosi</small></span>
+    </a>
+    <nav>
+      <a class="active" href="#home">HOME</a>
+      <a href="#servizi">SERVIZI</a>
+      <a href="#autostorico">AUTOSTORICO</a>
+      <a href="#lavori">LAVORI GIORNALIERI</a>
+      <a href="#auto-usate">VENDITA AUTO USATE</a>
+      <a href="#contatti">CONTATTI</a>
+    </nav>
+    <a class="wa-btn" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20informazioni%20o%20un%20preventivo%20dal%20Centro%20Revisione%20Abbate%20e%20Figli." target="_blank">Preventivi e info<br>388 998 4140</a>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="kicker">Esperienza, tecnologia e passione</div>
+        <h1>Sicurezza su cui puoi <em>contare.</em></h1>
+        <p>Da anni al servizio della tua auto con professionalità, esperienza e attrezzature all’avanguardia.</p>
+        <div class="actions">
+          <a class="primary-btn" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20informazioni%20o%20un%20preventivo%20dal%20Centro%20Revisione%20Abbate%20e%20Figli." target="_blank">Preventivi su WhatsApp</a>
+          <a class="outline-btn" href="tel:0916718292">091 671 8292</a>
         </div>
-        <div class="hero-media" aria-label="Schermata AutoStorico con veicolo e azioni rapide"><img src="dashboard.jpg" alt="Dashboard dell'app AutoStorico" /></div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="intro-band">
-        <p>Un'auto non e solo una targa. E revisioni, spese, documenti, chilometri e scelte da ricordare.</p>
-        <strong>Con AutoStorico ogni informazione resta al posto giusto.</strong>
-      </section>
+  <div class="quickbar">
+    <div class="wrap quickgrid">
+      <div class="quickitem"><div class="icon">✓</div>Revisioni auto e moto in sede</div>
+      <div class="quickitem"><div class="icon">⌁</div>Diagnosi elettronica avanzata</div>
+      <div class="quickitem"><div class="icon">🔧</div>Riparazioni e manutenzioni</div>
+      <div class="quickitem"><div class="icon">❄</div>Aria condizionata</div>
+      <div class="quickitem"><div class="icon">◆</div>Professionalità e serietà</div>
+    </div>
+  </div>
 
-      <section class="features" id="funzioni">
-        <div class="section-heading"><p class="eyebrow">TUTTO QUELLO CHE SERVE</p><h2>Gestisci la tua auto con piu serenita.</h2><p>Le informazioni importanti sono sempre disponibili quando servono: a casa, in officina o durante una vendita.</p></div>
-        <div class="feature-grid">
-          <article><span class="feature-icon blue">▣</span><h3>Libretto digitale</h3><p>Scansiona il libretto, controlla i dati letti e completa la scheda veicolo.</p></article>
-          <article><span class="feature-icon green">✓</span><h3>Scadenze ricordate</h3><p>Revisione, RCA e bollo restano visibili: niente piu date dimenticate.</p></article>
-          <article><span class="feature-icon orange">⌁</span><h3>Lavori e spese</h3><p>Registra manutenzioni, ricevute e chilometri per conoscere lo storico reale.</p></article>
-          <article><span class="feature-icon purple">▤</span><h3>Documenti ordinati</h3><p>Conserva polizze, libretti e documenti utili nello stesso archivio.</p></article>
+  <section id="servizi">
+    <div class="wrap">
+      <h2 class="section-title">I NOSTRI SERVIZI</h2>
+      <div class="services">
+        <article class="service-card"><img src="assets/officina_3.jpg"><div class="body"><h3>DIAGNOSI</h3><p>Diagnosi elettronica multimarca e ricerca guasti con strumenti avanzati.</p></div></article>
+        <article class="service-card"><img src="assets/officina_4.jpg"><div class="body"><h3>RIPARAZIONI</h3><p>Meccanica generale, manutenzione ordinaria e straordinaria.</p></div></article>
+        <article class="service-card"><img src="assets/officina_5.jpg"><div class="body"><h3>CLIMATIZZAZIONE</h3><p>Controllo, ricarica e riparazione degli impianti di aria condizionata.</p></div></article>
+        <article class="service-card"><img src="assets/officina_6.jpg"><div class="body"><h3>GAS DI SCARICO</h3><p>Controllo delle emissioni e dei sistemi antinquinamento.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="autostorico">
+    <div class="wrap">
+      <div class="autostorico">
+        <div class="auto-grid">
+          <div class="auto-copy">
+            <h2>AUTO<span>STORICO</span></h2>
+            <h3>LA STORIA COMPLETA DELLA TUA AUTO, SEMPRE CON TE</h3>
+            <p>AutoStorico, sviluppata dall'Isp. Giacomo Abbate, raccoglie in un'unica scheda le informazioni davvero utili della tua auto: documenti, lavori, scadenze, chilometri e valore.</p>
+            <ul>
+              <li>Scansiona il libretto e compila i dati del veicolo</li>
+              <li>Ricevi promemoria per revisione, assicurazione e bollo</li>
+              <li>Registra lavori, spese e chilometri nel tempo</li>
+              <li>Conserva documenti e prepara il dossier di vendita</li>
+              <li>Valuta la tua auto e segui il valore di mercato nel tempo</li>
+              <li>Esegui il backup dei tuoi dati quando vuoi</li>
+            </ul>
+            <a class="play-btn" href="https://play.google.com/store/apps/details?id=autostorico.myapp" target="_blank" rel="noopener noreferrer" aria-label="Scarica AutoStorico su Google Play">
+              <span aria-hidden="true">&#9654;</span><span><small>DISPONIBILE SU</small><strong>Google Play</strong></span>
+            </a>
+          </div>
+          <div class="phones">
+            <figure class="phone"><img src="assets/app_1.jpg" alt="Home di AutoStorico"><figcaption>Gestione veicolo</figcaption></figure>
+            <figure class="phone"><img src="assets/app_2.jpg" alt="Promemoria di AutoStorico"><figcaption>Scadenze e promemoria</figcaption></figure>
+            <figure class="phone"><img src="assets/app_3.jpg" alt="Documenti di AutoStorico"><figcaption>Documenti e lavori</figcaption></figure>
+            <figure class="phone"><img src="assets/app_4.jpg" alt="Valore auto in AutoStorico"><figcaption>Valore e vendita</figcaption></figure>
+            <figure class="phone"><img src="assets/app_scansione_libretto.jpg" alt="Scansione guidata del libretto in AutoStorico"><figcaption>Scansione libretto</figcaption></figure>
+            <figure class="phone"><img src="assets/app_promemoria_scadenze.jpg" alt="Promemoria scadenze in AutoStorico"><figcaption>Promemoria scadenze</figcaption></figure>
+            <figure class="phone"><img src="assets/app_dossier_vendita.jpg" alt="Dossier vendita in AutoStorico"><figcaption>Dossier vendita</figcaption></figure>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="split-panel" id="valore">
-        <div class="screen-card"><img src="revisioni.jpg" alt="Schermata verifiche e storico revisioni AutoStorico" /></div>
-        <div class="split-copy"><p class="eyebrow">VALORE E VERIFICHE</p><h2>Conosci meglio il tuo veicolo.</h2><p>Consulta lo storico delle revisioni, registra ogni intervento e ottieni una stima del valore dell'auto basata sui dati disponibili.</p><ul><li>Stima indicata in modo trasparente</li><li>Dati del veicolo sempre modificabili</li><li>Storico utile anche per la vendita</li></ul></div>
-      </section>
+  <section id="lavori" class="listing-section">
+    <div class="wrap">
+      <div class="listing-head">
+        <div><h2>LAVORI GIORNALIERI</h2><p>Qui pubblicheremo foto e aggiornamenti degli interventi effettuati in officina.</p></div>
+        <a class="small-btn" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20informazioni%20o%20un%20preventivo%20dal%20Centro%20Revisione%20Abbate%20e%20Figli." target="_blank">Richiedi informazioni</a>
+      </div>
+      <div class="empty-listing"><div><div class="empty-mark">+</div><h3>Nuovi lavori in arrivo</h3><p>Questa sezione verra' aggiornata man mano con i lavori che deciderai di pubblicare.</p></div></div>
+    </div>
+  </section>
 
-      <section class="scan-section">
-        <div><p class="eyebrow">PARTI DAL LIBRETTO</p><h2>Inserire un veicolo non deve essere complicato.</h2><p>Inquadra il libretto. AutoStorico riconosce i dati disponibili e ti permette di verificarli prima di salvarli.</p><a class="secondary-link" href="#disponibilita">Disponibile prossimamente</a></div>
-        <div class="scan-image"><img src="libretto.jpg" alt="Risultato della scansione del libretto in AutoStorico" /></div>
-      </section>
+  <section id="auto-usate" class="listing-section" style="padding-top:0">
+    <div class="wrap">
+      <div class="listing-head">
+        <div><h2>VENDITA AUTO USATE</h2><p>Le auto disponibili saranno inserite qui, con dati chiari e contatto diretto.</p></div>
+        <a class="small-btn" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20informazioni%20o%20un%20preventivo%20dal%20Centro%20Revisione%20Abbate%20e%20Figli." target="_blank">Chiedi le auto disponibili</a>
+      </div>
+      <div class="empty-listing"><div><div class="empty-mark">+</div><h3>Auto disponibili in aggiornamento</h3><p>Quando inserirai un veicolo verra' mostrato qui con foto, anno, chilometri, alimentazione, prezzo e contatto WhatsApp.</p></div></div>
+    </div>
+  </section>
 
-      <section class="security">
-        <div class="security-icon">✓</div><div><h2>I tuoi dati, la tua storia.</h2><p>Veicoli, lavori, documenti e backup sono pensati per restare disponibili a te. Le verifiche online usano solo i dati necessari al servizio richiesto.</p></div><a href="#disponibilita" class="secondary-link">Scopri l'app</a>
-      </section>
+  <section id="contatti" class="info">
+    <div class="wrap">
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>CHI SIAMO</h3>
+          <p>Il Centro Revisione Abbate e Figli nasce dall’esperienza e dalla passione per le auto. Offriamo servizi completi con professionalità, trasparenza e attenzione al cliente.</p>
+        </div>
+        <div class="info-box">
+          <h3>IL NOSTRO TEAM</h3>
+          <div class="team">
+            <div><div class="person-photo">Isp. Giacomo Abbate</div><div class="role">Ispettore tecnico<br>Sviluppatore AutoStorico</div></div>
+            <div><div class="person-photo">Giovanni Abbate</div><div class="role">Meccanico specializzato</div></div>
+            <div><div class="person-photo">Vincenzo Abbate</div><div class="role">Capo officina</div></div>
+          </div>
+        </div>
+        <div class="info-box">
+          <h3>DOVE SIAMO</h3>
+          <div class="map">Viale della Resurrezione 74/A</div>
+          <p><strong>Viale della Resurrezione 74/A<br>Palermo</strong></p>
+        </div>
+        <div class="info-box">
+          <h3>CONTATTI</h3>
+          <p><strong>WhatsApp:</strong><br>388 998 4140</p>
+          <p><strong>Telefono:</strong><br>091 671 8292</p>
+          <p><strong>Richieste e preventivi:</strong><br>tramite WhatsApp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-      <section class="cta" id="disponibilita">
-        <p class="eyebrow">IN ARRIVO SU GOOGLE PLAY</p><h2>Prenditi cura della tua auto, senza rincorrere piu i documenti.</h2><p>AutoStorico sara disponibile a breve. Inizia con 30 giorni di prova gratuita.</p><a class="store-button disabled" href="#disponibilita" aria-disabled="true">Google Play - prossimamente</a>
-      </section>
-    </main>
-    <footer><span>AutoStorico &copy; 2026</span><span>La storia completa della tua auto.</span></footer>
-  </body>
+<footer>
+  <div class="wrap footer-row">
+    <span>© Centro Revisione Abbate e Figli</span>
+    <span>Sito sviluppato da Isp. Giacomo Abbate</span>
+  </div>
+</footer>
+
+</body>
 </html>
