@@ -122,7 +122,7 @@ section{padding:58px 0}
 
 .gas-services{padding:0 0 58px;background:#fff}
 .gas-services-inner{display:grid;grid-template-columns:.9fr 1.1fr;background:var(--navy);border-radius:10px;overflow:hidden;color:#fff}
-.gas-services-inner>img{width:100%;height:100%;min-height:390px;object-fit:cover;object-position:center}
+.gas-services-inner>img{width:calc(100% - 48px);height:auto;min-height:0;max-height:430px;align-self:center;justify-self:center;object-fit:contain;object-position:center;background:#eaf0f4;border-radius:8px;padding:10px}
 .gas-services-copy{padding:38px}
 .gas-services-copy h2{margin:0 0 12px;font-size:36px;line-height:1.1}
 .gas-services-copy>p{margin:0;color:#d7e2ea;font-size:17px;line-height:1.6}
@@ -260,7 +260,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
   .qualification-gallery img{height:220px}
   .featured-service{grid-template-columns:1fr}
   .featured-service img{height:230px;min-height:0}
-  .gas-services-inner>img{min-height:230px;height:230px}
+  .gas-services-inner>img{width:calc(100% - 36px);min-height:0;height:auto;max-height:none;margin-top:20px;padding:8px}
   .gas-services-copy{padding:28px 24px}
   .gas-services-copy h2{font-size:30px}
   .reviews-panel{padding:28px 24px}
@@ -306,7 +306,7 @@ footer{background:var(--navy);color:#d5dee7;padding:18px 0;font-size:13px}
     <div class="wrap">
       <div class="hero-copy">
         <div class="kicker">Esperienza, tecnologia e passione</div>
-        <h1>Centro revisioni e officina a <em>Palermo.</em></h1>
+        <h1>La tua auto, nelle mani giuste. <em>A Palermo.</em></h1>
         <p>Revisioni, diagnosi e manutenzione con esperienza e attrezzature all’avanguardia. Scopri anche AutoStorico, l'app che organizza la vita della tua auto.</p>
         <div class="actions">
           <a class="primary-btn" href="https://wa.me/393889984140?text=Buongiorno%2C%20vorrei%20informazioni%20o%20un%20preventivo%20dal%20Centro%20Revisione%20Abbate%20e%20Figli." target="_blank">Preventivi su WhatsApp</a>
