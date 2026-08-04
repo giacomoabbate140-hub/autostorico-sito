@@ -32,8 +32,13 @@
     }
   }
   </script>
+<style>body{opacity:0;animation:pageFadeIn .4s ease forwards;transition:opacity .28s ease}@keyframes pageFadeIn{to{opacity:1}}body.fade-out{opacity:0!important;animation:none}</style>
 </head>
 <body>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;var href=a.getAttribute('href');if(!href||href.charAt(0)==='#'||href.indexOf('http')===0||href.indexOf('mailto')===0||href.indexOf('tel')===0||a.target==='_blank')return;e.preventDefault();document.body.classList.add('fade-out');setTimeout(function(){window.location.href=href;},280);});
+</script>
+
   <header class="topbar">
     <a class="brand" href="index.html"><span class="brand-mark">AS</span> AutoStorico</a>
     <nav aria-label="Navigazione principale">

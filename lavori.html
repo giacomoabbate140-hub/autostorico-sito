@@ -6,6 +6,7 @@
 <title>Lavori giornalieri | Centro Revisione Abbate e Figli</title>
 <meta name="description" content="Interventi e lavori eseguiti dal Centro Revisione Abbate e Figli a Palermo.">
 <style>
+body{opacity:0;animation:pageFadeIn .4s ease forwards;transition:opacity .28s ease}@keyframes pageFadeIn{to{opacity:1}}body.fade-out{opacity:0!important;animation:none}
 :root{--navy:#041a2d;--yellow:#ffc400;--red:#cf1f1f;--blue:#2f9fe0;--white:#fff;--muted:#c5cfd7;--line:#31424f}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#071018;color:#fff}a{text-decoration:none;color:inherit}.wrap{width:min(1280px,calc(100% - 30px));margin:auto}
 .notice{background:var(--yellow);color:var(--navy);font-weight:900;text-align:center;padding:9px 18px}header{background:#03121f;position:sticky;top:0;z-index:20;border-bottom:1px solid #263847}.topbar{min-height:84px;display:flex;align-items:center;gap:24px}.logo{margin-right:auto;font-weight:900}.logo strong{display:block;color:var(--yellow);font-size:23px;margin-top:4px}nav{display:flex;gap:23px;font-size:14px;font-weight:900}.wa{background:var(--yellow);color:var(--navy);padding:13px 18px;border-radius:8px;font-weight:900}
@@ -15,6 +16,10 @@ main{padding:42px 0 70px}.intro{text-align:center;margin-bottom:28px}.intro h2{f
 </style>
 </head>
 <body>
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;var href=a.getAttribute('href');if(!href||href.charAt(0)==='#'||href.indexOf('http')===0||href.indexOf('mailto')===0||href.indexOf('tel')===0||a.target==='_blank')return;e.preventDefault();document.body.classList.add('fade-out');setTimeout(function(){window.location.href=href;},280);});
+</script>
+
 <div class="notice">CENTRO REVISIONI ABBATE E FIGLI</div>
 <header><div class="wrap topbar"><a class="logo" href="index.html">CENTRO REVISIONE<strong>ABBATE E FIGLI</strong></a><nav><a href="index.html">HOME</a><a href="autostorico.html">AUTOSTORICO</a><a href="lavori.html">LAVORI GIORNALIERI</a><a href="index.html#contatti">CONTATTI</a></nav><a class="wa" href="https://wa.me/393889984140" target="_blank" rel="noopener noreferrer">WhatsApp 388 998 4140</a></div></header>
 <section class="hero"><div class="wrap"><h1>LAVORI <span>GIORNALIERI</span></h1><p>Ogni giorno impegno, competenza e passione. Qui raccontiamo diagnosi, interventi e risultati della nostra officina.</p><a class="back" href="index.html">← Torna alla Home</a></div></section>
