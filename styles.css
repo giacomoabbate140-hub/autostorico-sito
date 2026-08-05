@@ -9,3 +9,8 @@
 @media (max-width:800px) { main,footer { padding-inline:18px; }.topbar nav { display:none; }.hero { grid-template-columns:1fr; gap:42px; min-height:0; padding:50px 27px; }.hero-media { justify-self:center; }.intro-band { grid-template-columns:1fr; gap:22px; padding:60px 8%; }.feature-grid { grid-template-columns:1fr 1fr; }.app-guide { padding:56px 28px 52px; }.split-panel,.scan-section { grid-template-columns:1fr; gap:44px; padding:60px 26px; }.split-copy { order:-1; }.security { grid-template-columns:auto 1fr; padding:28px; }.security .secondary-link { grid-column:2; }.cta { padding:60px 25px; margin-top:60px; } h1 { font-size:38px; }.section-heading h2,.split-copy h2,.scan-section h2,.cta h2 { font-size:29px; } }
 @media (max-width:650px) { .app-guide { padding:58px 20px 50px; }.app-guide-grid { gap:28px; margin-top:46px; }.app-guide-card,.app-guide-card:nth-child(even) { grid-template-columns:1fr; gap:32px; min-height:0; padding:32px 23px 38px; }.app-guide-card:nth-child(even) figure { order:0; }.app-guide-card:nth-child(n) figure { transform:none; max-height:none; }.app-guide-copy h3 { font-size:26px; }.app-guide-copy > p:not(.card-kicker) { font-size:16px; } }
 @media (max-width:430px) { .feature-grid { grid-template-columns:1fr; }.intro-band p,.intro-band strong { font-size:18px; } footer { flex-direction:column; gap:6px; }.trust-row { display:grid; gap:8px; } }
+.gold-copy h3 { font-size:38px; }
+.gold-copy > p:not(.card-kicker) { font-size:19px; line-height:1.75; }
+.gold-copy ul { font-size:16.5px; }
+.gold-copy .card-kicker { font-size:13px!important; }
+@media (max-width:650px) { .gold-copy h3 { font-size:28px; } .gold-copy > p:not(.card-kicker) { font-size:17px; } .gold-copy ul { font-size:15.5px; } }
