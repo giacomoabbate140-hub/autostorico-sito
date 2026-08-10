@@ -148,5 +148,6 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)
   <script>
 (function(){var ov=document.createElement('div');ov.style.cssText='display:none;position:fixed;inset:0;background:rgba(2,10,18,.92);z-index:9999;align-items:center;justify-content:center;padding:24px;cursor:zoom-out';var zi=document.createElement('img');zi.style.cssText='max-width:92vw;max-height:92vh;width:auto;object-fit:contain;border-radius:6px;box-shadow:0 25px 60px rgba(0,0,0,.6)';ov.appendChild(zi);document.body.appendChild(ov);document.querySelectorAll('img').forEach(function(el){el.style.cursor='zoom-in';el.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();zi.src=el.currentSrc||el.src;zi.alt=el.alt||'';ov.style.display='flex';});});ov.addEventListener('click',function(){ov.style.display='none';});document.addEventListener('keydown',function(e){if(e.key==='Escape')ov.style.display='none';});})();
   </script>
+  <script src="analytics-events.js"></script>
 </body>
 </html>
