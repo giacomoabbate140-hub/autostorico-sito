@@ -139,8 +139,14 @@ function nextOpening(day,minutes){
 for(var d=0;d<8;d++){var idx=(day+d)%7;var ranges=HOURS[idx];if(!ranges)continue;for(var r=0;r<ranges.length;r++){var start=ranges[r][0];if(d===0&&start<=minutes)continue;return {day:idx,time:start,isToday:d===0,isTomorrow:d===1};}}
 return null;
 }
+var VACATION_START=new Date('2026-08-13T00:00:00');var VACATION_END=new Date('2026-08-30T23:59:59');
 function update(){
-var now=new Date();var day=now.getDay();var minutes=now.getHours()*60+now.getMinutes();var ranges=HOURS[day]||[];var status='closed';var statusText='';
+var now=new Date();
+if(now>=VACATION_START&&now<=VACATION_END){
+widget.setAttribute('data-status','closed');label.textContent='CHIUSO';statusEl.textContent='Chiuso per ferie, riapriamo il 31 agosto';
+return;
+}
+var day=now.getDay();var minutes=now.getHours()*60+now.getMinutes();var ranges=HOURS[day]||[];var status='closed';var statusText='';
 for(var i=0;i<ranges.length;i++){if(minutes>=ranges[i][0]&&minutes<ranges[i][1]){status='open';statusText='Siamo aperti fino alle '+fmt(ranges[i][1]);break;}}
 if(status!=='open'){
 var onBreakToday=ranges.length>1&&minutes<ranges[1][0]&&minutes>=ranges[0][1];
