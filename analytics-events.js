@@ -11,12 +11,16 @@
 
   function addUpcomingAutoStoricoFeatures() {
     var list = document.querySelector('#autostorico .auto-copy ul');
-    if (!list || list.querySelector('[data-autostorico-upcoming]')) return;
+    if (!list) return;
 
-    var item = document.createElement('li');
-    item.setAttribute('data-autostorico-upcoming', 'true');
-    item.innerHTML = '<strong>In arrivo:</strong> Info Targa e scansione automatica della targa per riconoscere il veicolo, verificare compatibilità per neopatentati e classe ambientale Euro, consultare revisione e copertura assicurativa, registrare scontrini e ricevute e tenere sotto controllo le spese di carburante, oltre a tante altre funzioni.';
-    list.appendChild(item);
+    var item = list.querySelector('[data-autostorico-upcoming]');
+    if (!item) {
+      item = document.createElement('li');
+      item.setAttribute('data-autostorico-upcoming', 'true');
+      list.appendChild(item);
+    }
+
+    item.innerHTML = '<strong>In arrivo:</strong> Info Targa, uno strumento per riconoscere il veicolo, verificare classe Euro, idoneità neopatentati, revisione e assicurazione, più gestione di scontrini e spese carburante.';
   }
 
   addUpcomingAutoStoricoFeatures();
