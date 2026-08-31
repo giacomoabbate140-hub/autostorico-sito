@@ -20,7 +20,7 @@
       list.appendChild(item);
     }
 
-    item.innerHTML = '<strong>In arrivo:</strong> Info Targa, uno strumento per riconoscere il veicolo, verificare classe Euro, idoneità neopatentati, revisione e assicurazione, più gestione di scontrini e spese carburante.';
+    item.innerHTML = '<u style="font-weight:900">In arrivo:</u> Info Targa, uno strumento per riconoscere il veicolo, verificare classe Euro, idoneità neopatentati, revisione e assicurazione, più gestione di scontrini e spese carburante.';
   }
 
   addUpcomingAutoStoricoFeatures();
