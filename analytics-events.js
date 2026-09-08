@@ -20,7 +20,7 @@
       list.appendChild(item);
     }
 
-    item.innerHTML = '<u style="font-weight:900">In arrivo:</u> Info Targa, uno strumento per riconoscere il veicolo, verificare classe Euro, idoneità neopatentati, revisione e assicurazione, più gestione di scontrini e spese carburante.';
+    item.innerHTML = '<u style="font-weight:900">In arrivo:</u> Info Targa, lo strumento che ti permette di conoscere subito la classe Euro del veicolo, se è idonea ai neopatentati, se è assicurata con relativa scadenza e la data dell\'ultima revisione. In arrivo anche una community con forum live, dove chiunque può condividere la propria esperienza, e un esperto online pronto a rispondere a qualsiasi dubbio o problema, disponibile 24 ore su 24.';
   }
 
   addUpcomingAutoStoricoFeatures();
