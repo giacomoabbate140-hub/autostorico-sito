@@ -83,6 +83,24 @@ if(now>=start&&now<=end){document.getElementById('promo-banner').style.display='
 })();
 </script>
 
+<div id="new-jobs-banner-home" style="display:none;background:#0b2540;color:#fff;text-align:center;padding:12px 44px;font-weight:800;font-size:14px;position:relative">
+  <a id="new-jobs-banner-home-link" href="lavori.html" style="color:#ffc400;text-decoration:none"></a>
+  <button onclick="document.getElementById('new-jobs-banner-home').style.display='none'" aria-label="Chiudi" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;width:26px;height:26px;border-radius:50%;font-weight:900;cursor:pointer">✕</button>
+</div>
+<script>
+(function(){
+  fetch('lavori.html').then(function(r){return r.text();}).then(function(html){
+    var count = (html.match(/class="job"/g) || []).length;
+    var seen = parseInt(localStorage.getItem('autostorico_jobs_seen') || '0', 10);
+    if (count > seen) {
+      var added = count - seen;
+      document.getElementById('new-jobs-banner-home-link').textContent =
+        (added === 1 ? '🔧 Nuovo lavoro aggiunto! Guardalo tra i nostri interventi →' : '🔧 ' + added + ' nuovi lavori aggiunti! Guardali tra i nostri interventi →');
+      document.getElementById('new-jobs-banner-home').style.display = 'block';
+    }
+  }).catch(function(){});
+})();
+</script>
 <div id="vacation-popup-overlay" style="display:none">
   <div id="vacation-popup-card">
     <button id="vacation-popup-close" onclick="document.getElementById('vacation-popup-overlay').style.display='none'" aria-label="Chiudi">✕</button>
