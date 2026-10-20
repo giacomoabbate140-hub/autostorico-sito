@@ -93,9 +93,8 @@ if(now>=start&&now<=end){document.getElementById('promo-banner').style.display='
     var count = (html.match(/class="job"/g) || []).length;
     var seen = parseInt(localStorage.getItem('autostorico_jobs_seen') || '0', 10);
     if (count > seen) {
-      var added = count - seen;
       document.getElementById('new-jobs-banner-home-link').textContent =
-        (added === 1 ? '🔧 Nuovo lavoro aggiunto! Guardalo tra i nostri interventi →' : '🔧 ' + added + ' nuovi lavori aggiunti! Guardali tra i nostri interventi →');
+        '🔧 Nuovo lavoro aggiunto! Guardalo tra i nostri interventi →';
       document.getElementById('new-jobs-banner-home').style.display = 'block';
     }
   }).catch(function(){});
