@@ -85,6 +85,36 @@
     @media (max-width:980px) { nav { gap:14px; font-size:12px; } .topbar { gap:16px; } }
     @media (max-width:900px) { nav { display:none; } .sequence,.job-foot { grid-template-columns:1fr; } .phase,.fact { border-right:0; border-bottom:1px solid var(--line); } .phase:last-child,.fact:last-child { border-bottom:0; } .phase { min-height:0; } .phase.no-media { min-height:0; } .phase img { max-height:520px; object-fit:contain; } }
     @media (max-width:600px) { .wrap { width:min(100% - 24px,1280px); } .topbar { min-height:72px; } .logo strong { font-size:21px; } .wa { padding:10px; font-size:12px; white-space:normal; } .hero { padding:45px 0; } .hero p { font-size:17px; } .intro h2 { font-size:34px; } .job-head { padding:20px; } .job-number { width:53px; height:48px; } .phase { padding:20px; } .jobs { gap:28px; } }
+  
+    /* ===== Valutazione a stelle sotto ogni lavoro ===== */
+    .job-rating { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--line); background:#06121b; }
+    .rate-cell { display:flex; min-width:0; padding:16px 20px; border-right:1px solid var(--line); flex-direction:column; justify-content:center; }
+    .rate-cell:last-child { border-right:0; }
+    .rate-cell small { display:block; margin-bottom:9px; color:var(--yellow); font-weight:900; }
+    .rate-avg { display:flex; align-items:baseline; gap:7px; line-height:1; }
+    .rate-avg b { font-size:36px; font-weight:900; }
+    .rate-avg span { color:var(--muted); font-weight:700; }
+    .rate-count { margin-top:8px; color:var(--muted); font-size:14px; }
+    .stars-static { --s:28px; --g:5px; position:relative; display:inline-block; align-self:flex-start; }
+    .stars-static .row { display:flex; width:max-content; gap:var(--g); }
+    .stars-static svg { display:block; width:var(--s); height:var(--s); }
+    .stars-bg svg { fill:#1b2d3a; stroke:#3a5163; stroke-width:1; }
+    .stars-fg { position:absolute; top:0; left:0; overflow:hidden; width:calc(var(--full,0) * (var(--s) + var(--g)) + var(--frac,0) * var(--s)); }
+    .stars-fg svg { fill:var(--yellow); stroke:var(--yellow); stroke-width:1; }
+    .stars-input { display:flex; gap:6px; }
+    .stars-input button { all:unset; display:grid; width:40px; height:40px; place-items:center; border-radius:8px; cursor:pointer; transition:transform .15s ease; }
+    .stars-input button svg { width:32px; height:32px; fill:#1b2d3a; stroke:#3a5163; stroke-width:1; transition:fill .15s ease,stroke .15s ease; }
+    .stars-input button.on svg { fill:var(--yellow); stroke:var(--yellow); }
+    .stars-input button:hover { transform:scale(1.12); }
+    .stars-input button:focus-visible { outline:2px solid var(--yellow); outline-offset:2px; }
+    .rate-msg { min-height:20px; margin-top:9px; color:var(--muted); font-size:14px; line-height:1.4; }
+    .rate-msg.thanks { color:var(--yellow); font-weight:700; }
+    @media (max-width:900px) {
+      .job-rating { grid-template-columns:1fr 1fr; }
+      .rate-cell:nth-child(2) { border-right:0; }
+      .rate-vote { grid-column:1 / -1; border-top:1px solid var(--line); border-right:0; }
+    }
+    @media (max-width:420px) { .stars-static { --s:23px; --g:4px; } .rate-avg b { font-size:32px; } .stars-input button { width:38px; height:38px; } .stars-input button svg { width:30px; height:30px; } }
   </style>
 </head>
 <body>
@@ -138,6 +168,130 @@
   <script>
     (function(){var GROUPS=['.workshop-gallery-grid','.qualification-gallery','.diagnostic-images','.phones','.reviews-grid'];var ov=document.createElement('div');ov.style.cssText='display:none;position:fixed;inset:0;background:rgba(2,10,18,.92);z-index:9999;align-items:center;justify-content:center;padding:24px;cursor:zoom-out';var zi=document.createElement('img');zi.style.cssText='max-width:92vw;max-height:92vh;width:auto;object-fit:contain;border-radius:6px;box-shadow:0 25px 60px rgba(0,0,0,.6)';ov.appendChild(zi);function makeArrow(dir){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',dir==='prev'?'Foto precedente':'Foto successiva');b.innerHTML=dir==='prev'?'&#10094;':'&#10095;';b.style.cssText='position:fixed;top:50%;'+(dir==='prev'?'left:14px':'right:14px')+';transform:translateY(-50%);z-index:10000;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:50%;width:46px;height:46px;font-size:18px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center';document.body.appendChild(b);return b;}var prevBtn=makeArrow('prev');var nextBtn=makeArrow('next');document.body.appendChild(ov);var currentGroup=[];var currentIndex=0;function show(index){if(!currentGroup.length)return;currentIndex=(index+currentGroup.length)%currentGroup.length;var el=currentGroup[currentIndex];zi.src=el.currentSrc||el.src;zi.alt=el.alt||'';var multi=currentGroup.length>1;prevBtn.style.display=multi?'flex':'none';nextBtn.style.display=multi?'flex':'none';}function openFor(el){var group=null;for(var i=0;i<GROUPS.length;i++){var container=el.closest(GROUPS[i]);if(container){group=Array.prototype.slice.call(container.querySelectorAll('img'));break;}}currentGroup=group&&group.length?group:[el];show(currentGroup.indexOf(el));ov.style.display='flex';}document.querySelectorAll('img').forEach(function(el){el.style.cursor='zoom-in';el.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();openFor(el);});});prevBtn.addEventListener('click',function(e){e.stopPropagation();show(currentIndex-1);});nextBtn.addEventListener('click',function(e){e.stopPropagation();show(currentIndex+1);});ov.addEventListener('click',function(){ov.style.display='none';prevBtn.style.display='none';nextBtn.style.display='none';});document.addEventListener('keydown',function(e){if(ov.style.display!=='flex')return;if(e.key==='Escape'){ov.style.display='none';prevBtn.style.display='none';nextBtn.style.display='none';}if(e.key==='ArrowRight')show(currentIndex+1);if(e.key==='ArrowLeft')show(currentIndex-1);});var touchStartX=null;ov.addEventListener('touchstart',function(e){touchStartX=e.changedTouches[0].clientX;});ov.addEventListener('touchend',function(e){if(touchStartX===null)return;var dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>40){if(dx<0)show(currentIndex+1);else show(currentIndex-1);}touchStartX=null;});})();
   </script>
+<script>
+/* Valutazione a stelle (0-5) sotto ogni lavoro. Si applica da sola a tutti gli article.job, anche ai lavori futuri. */
+(function(){
+  /* Database condiviso (Supabase). Servono solo chiavi PUBBLICHE: Project URL e anon/publishable key. MAI la service_role. */
+  var SUPABASE_URL='';
+  var SUPABASE_KEY='';
+
+  var REMOTE=!!(SUPABASE_URL&&SUPABASE_KEY);
+  var KEY='abbate_job_votes',DEV='abbate_device_id';
+  var STAR='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.85 6.02 6.55.8-4.83 4.55 1.25 6.5L12 17.2l-5.82 3.27 1.25-6.5L2.6 9.42l6.55-.8z"/></svg>';
+  function stars(n){var h='';for(var i=0;i<n;i++){h+=STAR;}return h;}
+
+  function deviceId(){
+    try{
+      var d=localStorage.getItem(DEV);
+      if(d&&d.length>=16){return d;}
+      d=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():(Date.now().toString(16)+Math.random().toString(16).slice(2)+Math.random().toString(16).slice(2));
+      localStorage.setItem(DEV,d);return d;
+    }catch(e){return 'anon-'+Date.now().toString(16)+Math.random().toString(16).slice(2);}
+  }
+  function rpc(fn,body){
+    var h={'Content-Type':'application/json','apikey':SUPABASE_KEY};
+    if(SUPABASE_KEY.indexOf('eyJ')===0){h['Authorization']='Bearer '+SUPABASE_KEY;}
+    return fetch(SUPABASE_URL.replace(/\/+$/,'')+'/rest/v1/rpc/'+fn,{method:'POST',headers:h,body:JSON.stringify(body||{})}).then(function(r){
+      if(!r.ok){throw new Error('HTTP '+r.status);}
+      return r.text().then(function(t){return t?JSON.parse(t):null;});
+    });
+  }
+
+  var Store={
+    mine:function(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){return {};}},
+    totals:function(ids){
+      if(!REMOTE){ /* senza database: solo il voto di questo dispositivo (provvisorio) */
+        var m=this.mine(),t={};ids.forEach(function(id){t[id]=m[id]?{count:1,sum:m[id]}:{count:0,sum:0};});return Promise.resolve(t);
+      }
+      return rpc('get_job_rating_totals').then(function(rows){
+        var t={};(rows||[]).forEach(function(r){t[r.rated_job]={count:+r.vote_count,sum:+r.vote_sum};});return t;
+      });
+    },
+    vote:function(id,n){
+      var self=this;
+      function save(){var m=self.mine();m[id]=n;try{localStorage.setItem(KEY,JSON.stringify(m));}catch(e){}}
+      if(!REMOTE){save();return Promise.resolve();}
+      return rpc('submit_job_rating',{p_job_id:id,p_device_id:deviceId(),p_stars:n}).then(save);
+    }
+  };
+
+  var jobs=[].slice.call(document.querySelectorAll('article.job'));
+  if(!jobs.length){return;}
+  var state='loading',cache=null;
+  var items=jobs.map(function(job){
+    var numEl=job.querySelector('.job-number');
+    var id=numEl?numEl.textContent.trim():'';
+    var titleEl=job.querySelector('.job-head h2');
+    var title=titleEl?titleEl.textContent.replace(/\s+/g,' ').trim():'questo lavoro';
+    var box=document.createElement('div');
+    box.className='job-rating';
+    box.innerHTML=
+      '<div class="rate-cell rate-summary"><small>VALUTAZIONE</small><div class="rate-avg"><b>&ndash;</b><span>/ 5</span></div><div class="rate-count">Caricamento&hellip;</div></div>'+
+      '<div class="rate-cell"><small>MEDIA VOTI</small><div class="stars-static" role="img"><div class="row stars-bg">'+stars(5)+'</div><div class="stars-fg"><div class="row">'+stars(5)+'</div></div></div></div>'+
+      '<div class="rate-cell rate-vote"><small>VOTA QUESTO LAVORO</small><div class="stars-input" role="radiogroup" aria-label="Vota '+title.replace(/"/g,'')+' da 1 a 5 stelle"></div><div class="rate-msg">Tocca una stella per votare</div></div>';
+    var foot=job.querySelector('.job-foot');
+    if(foot){foot.insertAdjacentElement('afterend',box);}else{job.appendChild(box);}
+    var input=box.querySelector('.stars-input');
+    for(var i=1;i<=5;i++){
+      var b=document.createElement('button');
+      b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');
+      b.setAttribute('aria-label','Vota '+i+(i===1?' stella':' stelle')+' su 5');
+      b.dataset.v=i;b.innerHTML=STAR;input.appendChild(b);
+    }
+    return {id:id,box:box,input:input,btns:[].slice.call(input.children),busy:false};
+  });
+  var ids=items.map(function(i){return i.id;});
+
+  function paintInput(it,n){it.btns.forEach(function(b,i){b.classList.toggle('on',i<n);});}
+  function paint(it){
+    var t=(state==='ok'&&cache)?(cache[it.id]||{count:0,sum:0}):null;
+    var mine=Store.mine()[it.id]||0;
+    var avgEl=it.box.querySelector('.rate-avg b'),cntEl=it.box.querySelector('.rate-count'),fg=it.box.querySelector('.stars-fg'),box=it.box.querySelector('.stars-static');
+    if(t){
+      var c=t.count||0,avg=c?t.sum/c:0,full=Math.floor(avg),frac=avg-full;
+      avgEl.textContent=avg.toFixed(1).replace('.',',');
+      cntEl.textContent=c?(c+(c===1?' voto':' voti')):'Nessun voto';
+      fg.style.setProperty('--full',full);fg.style.setProperty('--frac',frac.toFixed(3));
+      box.setAttribute('aria-label','Valutazione media '+avg.toFixed(1).replace('.',',')+' su 5, '+c+(c===1?' voto':' voti'));
+    }else{
+      avgEl.textContent='\u2013';
+      cntEl.textContent=state==='loading'?'Caricamento\u2026':'Voti non disponibili';
+      fg.style.setProperty('--full',0);fg.style.setProperty('--frac',0);
+    }
+    paintInput(it,mine);
+    it.btns.forEach(function(b,i){b.setAttribute('aria-checked',String(i+1===mine));});
+    var msg=it.box.querySelector('.rate-msg');
+    if(mine){msg.textContent='Grazie! Hai votato '+mine+' su 5. Puoi cambiare voto.';msg.className='rate-msg thanks';}
+    else{msg.textContent='Tocca una stella per votare';msg.className='rate-msg';}
+  }
+  function load(){
+    return Store.totals(ids).then(function(t){state='ok';cache=t;},function(){state='error';cache=null;}).then(function(){items.forEach(paint);});
+  }
+
+  items.forEach(function(it){
+    it.input.addEventListener('mouseover',function(e){
+      var b=e.target.closest('button');if(!b){return;}
+      paintInput(it,+b.dataset.v);
+      var m=it.box.querySelector('.rate-msg');m.textContent='Vota '+b.dataset.v+' su 5';m.className='rate-msg';
+    });
+    it.input.addEventListener('mouseleave',function(){paint(it);});
+    it.input.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b||it.busy){return;}
+      var n=+b.dataset.v,msg=it.box.querySelector('.rate-msg');
+      it.busy=true;msg.textContent='Invio del voto\u2026';msg.className='rate-msg';
+      Store.vote(it.id,n).then(function(){
+        it.busy=false;
+        if(window.gtag){try{gtag('event','rate_job',{job_id:it.id,stars:n});}catch(err){}}
+        return load();
+      }).catch(function(){
+        it.busy=false;msg.textContent='Voto non inviato. Riprova tra poco.';msg.className='rate-msg';paintInput(it,Store.mine()[it.id]||0);
+      });
+    });
+  });
+  items.forEach(paint);
+  load();
+})();
+</script>
 <script src="analytics-events.js"></script>
 </body>
 </html>
