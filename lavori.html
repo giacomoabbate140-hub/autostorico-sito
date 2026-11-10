@@ -119,6 +119,13 @@
     .job-rating.local .rate-vote { grid-column:span 2; border-right:0; }
     .job-rating.local .rate-cell:nth-child(2) { display:none; }
     @media (max-width:900px) { .job-rating.local { grid-template-columns:1fr; } .job-rating.local .rate-vote { grid-column:auto; border-top:1px solid var(--line); } .job-rating.local .rate-summary { border-right:0; } }
+      .rate-dist { grid-column:1 / -1; padding:14px 20px 18px; border-top:1px solid var(--line); }
+    .rate-dist small { display:block; margin-bottom:10px; color:var(--yellow); font-weight:900; }
+    .dist-row { display:grid; grid-template-columns:44px minmax(0,1fr) 84px; align-items:center; gap:12px; margin-top:7px; }
+    .dist-lbl { font-weight:800; font-size:14px; }
+    .dist-bar { display:block; height:10px; overflow:hidden; border-radius:6px; background:#1b2d3a; }
+    .dist-bar i { display:block; height:100%; border-radius:6px; background:var(--yellow); }
+    .dist-n { color:var(--muted); font-size:14px; text-align:right; }
   </style>
 </head>
 <body>
@@ -208,7 +215,7 @@
         var m=this.mine(),t={};ids.forEach(function(id){t[id]=m[id]?{count:1,sum:m[id]}:{count:0,sum:0};});return Promise.resolve(t);
       }
       return rpc('get_job_rating_totals').then(function(rows){
-        var t={};(rows||[]).forEach(function(r){t[r.rated_job]={count:+r.vote_count,sum:+r.vote_sum};});return t;
+        var t={};(rows||[]).forEach(function(r){t[r.rated_job]={count:+r.vote_count,sum:+r.vote_sum,d:[+r.s1||0,+r.s2||0,+r.s3||0,+r.s4||0,+r.s5||0]};});return t;
       });
     },
     vote:function(id,n){
@@ -232,7 +239,7 @@
     box.innerHTML=
       '<div class="rate-cell rate-summary"><small>'+(REMOTE?'VALUTAZIONE':'LA TUA VALUTAZIONE')+'</small><div class="rate-avg"><b>&ndash;</b><span>/ 5</span></div><div class="rate-count">Caricamento&hellip;</div></div>'+
       '<div class="rate-cell"><small>MEDIA VOTI</small><div class="stars-static" role="img"><div class="row stars-bg">'+stars(5)+'</div><div class="stars-fg"><div class="row">'+stars(5)+'</div></div></div></div>'+
-      '<div class="rate-cell rate-vote"><small>VOTA QUESTO LAVORO</small><div class="stars-input" role="radiogroup" aria-label="Vota '+title.replace(/"/g,'')+' da 1 a 5 stelle"></div><div class="rate-msg">Tocca una stella per votare</div></div>';
+      '<div class="rate-cell rate-vote"><small>VOTA QUESTO LAVORO</small><div class="stars-input" role="radiogroup" aria-label="Vota '+title.replace(/"/g,'')+' da 1 a 5 stelle"></div><div class="rate-msg">Tocca una stella per votare</div></div>'+(REMOTE?'<div class="rate-dist" style="display:none"></div>':'');
     var foot=job.querySelector('.job-foot');
     if(foot){foot.insertAdjacentElement('afterend',box);}else{job.appendChild(box);}
     var input=box.querySelector('.stars-input');
@@ -247,6 +254,16 @@
   var ids=items.map(function(i){return i.id;});
 
   function paintInput(it,n){it.btns.forEach(function(b,i){b.classList.toggle('on',i<n);});}
+  function renderDist(it,t,c){
+    var el=it.box.querySelector('.rate-dist');if(!el){return;}
+    if(!t||!c){el.innerHTML='';el.style.display='none';return;}
+    var d=t.d||[0,0,0,0,0],h='';
+    for(var k=5;k>=1;k--){
+      var n=d[k-1]||0,pc=Math.round(n*100/c);
+      h+='<div class="dist-row"><span class="dist-lbl">'+k+' &#9733;</span><span class="dist-bar"><i style="width:'+pc+'%"></i></span><span class="dist-n">'+n+(n===1?' voto':' voti')+' &middot; '+pc+'%</span></div>';
+    }
+    el.innerHTML='<small>COME HANNO VOTATO</small>'+h;el.style.display='';
+  }
   function paint(it){
     var t=(state==='ok'&&cache)?(cache[it.id]||{count:0,sum:0}):null;
     var mine=Store.mine()[it.id]||0;
@@ -267,7 +284,9 @@
       cntEl.textContent=c?(c+(c===1?' voto':' voti')):'Nessun voto';
       fg.style.setProperty('--full',full);fg.style.setProperty('--frac',frac.toFixed(3));
       box.setAttribute('aria-label','Valutazione media '+avg.toFixed(1).replace('.',',')+' su 5, '+c+(c===1?' voto':' voti'));
+      renderDist(it,t,c);
     }else{
+      renderDist(it,null,0);
       avgEl.textContent='\u2013';
       cntEl.textContent=state==='loading'?'Caricamento\u2026':'Voti non disponibili';
       fg.style.setProperty('--full',0);fg.style.setProperty('--frac',0);
