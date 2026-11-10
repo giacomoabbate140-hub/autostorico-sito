@@ -115,6 +115,10 @@
       .rate-vote { grid-column:1 / -1; border-top:1px solid var(--line); border-right:0; }
     }
     @media (max-width:420px) { .stars-static { --s:23px; --g:4px; } .rate-avg b { font-size:32px; } .stars-input button { width:38px; height:38px; } .stars-input button svg { width:30px; height:30px; } }
+      .job-rating.local { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .job-rating.local .rate-vote { grid-column:span 2; border-right:0; }
+    .job-rating.local .rate-cell:nth-child(2) { display:none; }
+    @media (max-width:900px) { .job-rating.local { grid-template-columns:1fr; } .job-rating.local .rate-vote { grid-column:auto; border-top:1px solid var(--line); } .job-rating.local .rate-summary { border-right:0; } }
   </style>
 </head>
 <body>
@@ -224,9 +228,9 @@
     var titleEl=job.querySelector('.job-head h2');
     var title=titleEl?titleEl.textContent.replace(/\s+/g,' ').trim():'questo lavoro';
     var box=document.createElement('div');
-    box.className='job-rating';
+    box.className='job-rating'+(REMOTE?'':' local');
     box.innerHTML=
-      '<div class="rate-cell rate-summary"><small>VALUTAZIONE</small><div class="rate-avg"><b>&ndash;</b><span>/ 5</span></div><div class="rate-count">Caricamento&hellip;</div></div>'+
+      '<div class="rate-cell rate-summary"><small>'+(REMOTE?'VALUTAZIONE':'LA TUA VALUTAZIONE')+'</small><div class="rate-avg"><b>&ndash;</b><span>/ 5</span></div><div class="rate-count">Caricamento&hellip;</div></div>'+
       '<div class="rate-cell"><small>MEDIA VOTI</small><div class="stars-static" role="img"><div class="row stars-bg">'+stars(5)+'</div><div class="stars-fg"><div class="row">'+stars(5)+'</div></div></div></div>'+
       '<div class="rate-cell rate-vote"><small>VOTA QUESTO LAVORO</small><div class="stars-input" role="radiogroup" aria-label="Vota '+title.replace(/"/g,'')+' da 1 a 5 stelle"></div><div class="rate-msg">Tocca una stella per votare</div></div>';
     var foot=job.querySelector('.job-foot');
@@ -246,6 +250,16 @@
   function paint(it){
     var t=(state==='ok'&&cache)?(cache[it.id]||{count:0,sum:0}):null;
     var mine=Store.mine()[it.id]||0;
+    if(!REMOTE){
+      it.box.querySelector('.rate-avg b').textContent=mine?(mine+',0'):'\u2013';
+      it.box.querySelector('.rate-count').textContent=mine?'Il tuo voto':'Non hai ancora votato';
+      paintInput(it,mine);
+      it.btns.forEach(function(b,i){b.setAttribute('aria-checked',String(i+1===mine));});
+      var lm=it.box.querySelector('.rate-msg');
+      if(mine){lm.textContent='Grazie! Hai votato '+mine+' su 5. Puoi cambiare voto.';lm.className='rate-msg thanks';}
+      else{lm.textContent='Tocca una stella per votare';lm.className='rate-msg';}
+      return;
+    }
     var avgEl=it.box.querySelector('.rate-avg b'),cntEl=it.box.querySelector('.rate-count'),fg=it.box.querySelector('.stars-fg'),box=it.box.querySelector('.stars-static');
     if(t){
       var c=t.count||0,avg=c?t.sum/c:0,full=Math.floor(avg),frac=avg-full;
