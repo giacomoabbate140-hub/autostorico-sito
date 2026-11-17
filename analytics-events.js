@@ -5,6 +5,7 @@
     window.gtag('event', eventName, {
       link_text: (link.textContent || '').trim().slice(0, 100),
       link_url: link.href,
+      placement: (function () { var m = (link.href || '').match(/utm_medium(?:%3D|=)([^&%]+)/); return m ? m[1] : ''; })(),
       page_path: window.location.pathname
     });
   }

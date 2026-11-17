@@ -47,8 +47,8 @@
     .jobs { display:grid; gap:34px; }
 
     .job { --accent:var(--yellow); overflow:hidden; position:relative; border:1px solid #3d5566; border-radius:14px; background:#0e1c27; box-shadow:0 22px 48px rgba(0,0,0,.35); }
-    .job:nth-child(3n+2) { --accent:var(--blue); }
-    .job:nth-child(3n+3) { --accent:var(--red); }
+    .job:nth-of-type(3n+2) { --accent:var(--blue); }
+    .job:nth-of-type(3n+3) { --accent:var(--red); }
     .job::before { position:absolute; top:0; right:0; left:0; z-index:1; height:6px; background:var(--accent); content:""; }
     .job-head { display:flex; align-items:center; gap:15px; padding:23px 22px 21px; border-bottom:2px solid var(--accent); background:var(--navy-deep); }
     .job-number, .phase-no { display:grid; flex:0 0 auto; place-items:center; border-radius:8px; background:var(--accent); color:#06131d; font-weight:900; }
@@ -326,6 +326,7 @@
   load();
 })();
 </script>
+<script src="app-promo.js"></script>
 <script src="analytics-events.js"></script>
 </body>
 </html>
