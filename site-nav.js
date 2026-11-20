@@ -40,7 +40,8 @@
 
   /* Telefono, pagine senza menu a tendina: il menu e' nascosto, quindi la voce compare come fascia sotto l'intestazione */
   var header = document.querySelector('header');
-  if (header && (isHome || !document.getElementById('menu-toggle'))) {
+  /* Nella pagina Consigli del giorno la fascia sarebbe una ripetizione del titolo: non serve */
+  if (header && !here && (isHome || !document.getElementById('menu-toggle'))) {
     var simple = header.querySelector('nav');
     if (simple || isHome) {
       var strip = document.createElement('a');
