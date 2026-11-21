@@ -115,6 +115,27 @@ if(now>=start&&now<=end){document.getElementById('promo-banner').style.display='
   box.querySelector('button').addEventListener('click',function(){box.style.display='none';try{localStorage.setItem(K,String(Date.now()+14*864e5));}catch(e){}});
 })();
 </script>
+<div id="new-tips-banner-home" style="display:none;background:#0b2540;color:#fff;text-align:center;padding:12px 44px;font-weight:800;font-size:14px;position:relative">
+  <a id="new-tips-banner-home-link" href="consigli-del-giorno.html" style="color:#ffc400;text-decoration:none"></a>
+  <button type="button" aria-label="Chiudi" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;width:26px;height:26px;border-radius:50%;font-weight:900;cursor:pointer">✕</button>
+</div>
+<script>
+(function(){
+  /* Si accende da solo quando nella pagina Consigli del giorno c'e' un consiglio che il visitatore non ha ancora visto */
+  var K='autostorico_tips_seen',box=document.getElementById('new-tips-banner-home'),count=0;
+  fetch('consigli-del-giorno.html',{cache:'no-cache'}).then(function(r){return r.text();}).then(function(html){
+    count=(html.match(/<article class="tip">/g)||[]).length;
+    var seen=0;try{seen=parseInt(localStorage.getItem(K)||'0',10);}catch(e){}
+    if(count>seen){
+      document.getElementById('new-tips-banner-home-link').textContent=seen===0
+        ?'💡 Nuovo servizio: consigli utili del giorno, venite a vederlo →'
+        :'💡 Nuovo consiglio del giorno! Venite a leggerlo →';
+      box.style.display='block';
+    }
+  }).catch(function(){});
+  box.querySelector('button').addEventListener('click',function(){box.style.display='none';try{localStorage.setItem(K,String(count));}catch(e){}});
+})();
+</script>
 <div id="vacation-popup-overlay" style="display:none">
   <div id="vacation-popup-card">
     <button id="vacation-popup-close" onclick="document.getElementById('vacation-popup-overlay').style.display='none'" aria-label="Chiudi">✕</button>
