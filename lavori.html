@@ -1,7 +1,19 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGBM2XETY7"></script>
+  <script>
+/* Esclude le visite del proprietario da Google Analytics.
+   Apri una volta ?no_track=1 per disattivare il tracciamento su questo dispositivo, ?no_track=0 per riattivarlo. */
+(function(){
+  try {
+    var p = new URLSearchParams(location.search).get('no_track');
+    if (p === '1') localStorage.setItem('no_track', '1');
+    if (p === '0') localStorage.removeItem('no_track');
+    if (localStorage.getItem('no_track') === '1') window['ga-disable-G-HGBM2XETY7'] = true;
+  } catch (e) {}
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HGBM2XETY7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
