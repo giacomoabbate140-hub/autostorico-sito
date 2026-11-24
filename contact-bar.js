@@ -9,7 +9,8 @@
     '#contact-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;font:800 16px/1 Manrope,Arial,sans-serif;text-decoration:none;color:#fff}' +
     '#contact-bar .cb-call{background:#096f92}' +
     '#contact-bar .cb-wa{background:#1fa855}' +
-    'body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}}';
+    'body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))!important}' +
+    'body .app-pill{bottom:calc(76px + env(safe-area-inset-bottom,0px))}}';
   var st = document.createElement('style');
   st.textContent = css;
   document.head.appendChild(st);
