@@ -27,6 +27,7 @@
   var isHome = !!document.querySelector('header .desktop-nav');
   var here = /consigli-del-giorno\.html$/.test(location.pathname);
   [].slice.call(document.querySelectorAll('header nav')).forEach(function (nav) {
+    if (here) return; /* nella pagina Consigli del giorno il riquadro giallo nel menu ripeterebbe il titolo */
     if (nav.querySelector('a[href="' + HREF + '"]')) return;
     if (isHome && nav.classList.contains('desktop-nav')) return;
     var a = document.createElement('a');
